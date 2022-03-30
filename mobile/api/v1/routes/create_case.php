@@ -6,36 +6,36 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
  
 include_once '../../../../admin/config.php';
-include_once '../Functions/Order.php';
+include_once '../Functions/Referral.php';
  
 $database = new Database();
 $db = $database->getConnString();
  
-$items = new Order($db);
+$items = new Referral($db);
 $data = json_decode(file_get_contents("php://input"));
 
-if(!empty($data->order_address) && !empty($data->customer_id) &&
-!empty($data->total_amount) && !empty($data->order_status)&& !empty($data->processed_by) && !empty($data->orderItemList)){   
+
+if(!empty($data->name) && !empty($data->category_id) && !empty($data->reportedby_id)&& !empty($data->description)){
   
-    $items->order_address = $data->order_address;
-    $items->customer_id = $data->customer_id;
-    $items->order_total_amount = $data->total_amount;
-    $items->order_status = $data->order_status;
-    $items->processed_by = $data->processed_by;
-    $items->orderItemList = $data->orderItemList;
-    $items->order_date = date('Y-m-d H:i:s'); 
+    $items->name = $data->name;
+    $items->picture = $data->picture;
+    $items->description = $data->description;
+    $items->category_id = $data->category_id;
+    $items->reportedby_id = $data->reportedby_id;
+    $items->datecreated = date('Y-m-d H:i:s');
+
 
 
     if($items->create()){         
         http_response_code(201);  
         $response['error'] = false;
-        $response['message'] = 'Order was created.';
+        $response['message'] = 'Referral was created.';
         echo json_encode($response);
       
     } else{         
         http_response_code(503);   
         $response['error'] = true;
-        $response['message'] = 'Unable to create Order.';     
+        $response['message'] = 'Unable to create Referral.';
         echo json_encode($response);
     }
 }else{    

@@ -119,7 +119,7 @@ require("../queries/classes/Order.php");
               ?>
 
                 <?php
-                $order = new Order($con, $row);
+                $order = new Referral($con, $row);
                 ?>
 
                 <div class="product-card">

@@ -78,7 +78,7 @@ require("../queries/classes/Menu.php");
         <div class="mainpanel">
 
             <?php
-            $order = new Order($con, $orderid);
+            $order = new Referral($con, $orderid);
 
             if ($order->getOrder_id() != null) :
             ?>

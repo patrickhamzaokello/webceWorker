@@ -1,19 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 .light {
-  --mainColor: #ffffff;
-  --hoverColor: #a9a9a9;
-  --backgroundColor: #000000;
-  --darkOne: #f3f3f3;
-  --darkTwo: #fff;
-  --lightOne: #ccc;
-  --lightTwo: #e7e3e3;
-  --btnColor: #000000;
-  --headerlogo:url("./img/zodongo.png");
-  --footerbg: rgb(0, 0, 0);
-}
 
-.dark {
   --mainColor: #1a1a1a;
   --hoverColor: #383838;
   --backgroundColor: #ffffff;
@@ -23,8 +11,20 @@
   --lightTwo: #696969;
   --btnColor: #ffffff;
   --headerlogo:url("./img/zodongoblack.png");
-  --footerbg: rgb(0, 0, 0);
+  --footerbg: #d1edff;
+}
 
+.dark {
+  --mainColor: #ffffff;
+  --hoverColor: #a9a9a9;
+  --backgroundColor: #000000;
+  --darkOne: #f3f3f3;
+  --darkTwo: #fff;
+  --lightOne: #ccc;
+  --lightTwo: #e7e3e3;
+  --btnColor: #000000;
+  --headerlogo:url("./img/zodongo.png");
+  --footerbg: #2F3A70;
 }
 
 *,

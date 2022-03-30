@@ -6,7 +6,7 @@ include("config.php");
 <html lang="en">
 
 <head>
-    <title>Zodongo Foods Admin</title>
+    <title>Famlink</title>
     <meta charset="utf-8">
 
     <link href="https://fonts.googleapis.com/css?family=Dosis:200,300,400,500,700" rel="stylesheet">
@@ -93,9 +93,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="formtitle">
 
                     <!-- <img class="zodongologinlogo" src="pages/assets/zodongo_logo.png" alt=""> -->
-                        <p class="logintext">Admin Login</p>
+                        <p class="logintext">Famlink Admin Login</p>
 
-                        <p class="newtopwf">Zodongo Foods</p>
                     </div>
 
                     <form action="" method="post">

@@ -26,7 +26,7 @@ require "queries/classes/Order.php";
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <title>Zodongo Foods</title>
+  <title>Famlink</title>
 </head>
 
 <body>
@@ -36,13 +36,14 @@ require "queries/classes/Order.php";
       <div class="currentpage">
         <p>
           <span><a href="index">Admin /</a></span>
-          <a href="index"><?= $login_session ?></a>
+          <a href="index"><?= $login_session = "PK";
+              $login_session ?></a>
         </p>
       </div>
 
       <div class="menu">
         <div class="menuitem">
-          <a href="index">Zodongo Foods Admin Panel</a>
+          <a href="index">Famlink Admin Panel</a>
         </div>
       </div>
 
@@ -63,16 +64,16 @@ require "queries/classes/Order.php";
           <p>Dashboard</p>
         </a>
         <a href="pages/allorders" class="menu">
-          <p>All Orders</p>
+          <p>Appointments</p>
         </a>
         <a href="pages/menuitems" class="menu">
-          <p>Menu</p>
+          <p>Cases</p>
         </a>
         <a href="pages/categories" class="menu">
           <p>Categories</p>
         </a>
         <a href="pages/banners" class="menu">
-          <p>Banners</p>
+          <p>Users</p>
         </a>
       </div>
     </div>
@@ -87,7 +88,7 @@ require "queries/classes/Order.php";
             <img src="images/fontisto_shopping-basket.svg" alt="" />
           </div>
           <div class="stats">
-            <p class="label">New Orders</p>
+            <p class="label">New Cases</p>
             <p class="number"><?= $totalActiveOrders_stat  ?></p>
           </div>
         </div>
@@ -97,7 +98,7 @@ require "queries/classes/Order.php";
             <img src="images/bxs_food-menu.svg" alt="" />
           </div>
           <div class="stats">
-            <p class="label">Menu</p>
+            <p class="label">Appointments</p>
             <p class="number"><?= $totalMenuActivestat ?></p>
           </div>
 
@@ -107,7 +108,7 @@ require "queries/classes/Order.php";
             <img src="images/bx_category.svg" alt="" />
           </div>
           <div class="stats">
-            <p class="label">Categories</p>
+            <p class="label">Cases</p>
             <p class="number"><?= $totalMenuType_stat ?></p>
           </div>
 
@@ -142,7 +143,7 @@ require "queries/classes/Order.php";
               ?>
 
                 <?php
-                $order = new Order($con, $row);
+                $order = new Referral($con, $row);
                 ?>
 
                 <div class="product-card">

@@ -1,0 +1,4 @@
+RewriteEngine On    # Turn on the rewriting engine
+RewriteRule ^userCases$ userCases.php [NC,L]
+RewriteRule ^userCases/([0-9_-]*)$ userCases.php?userId=$1&page=$1 [NC,L]
+RewriteRule ^create_case$ create_case.php [NC,L]

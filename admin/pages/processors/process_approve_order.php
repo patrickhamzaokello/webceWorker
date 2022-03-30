@@ -16,13 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     if (empty($_POST['childname'])) {
-        $errors['childname'] = 'Order ID is Required';
+        $errors['childname'] = 'Referral ID is Required';
     }
     if (empty($_POST['orderstatus'])) {
-        $errors['order Status'] = 'Order status is Required';
+        $errors['order Status'] = 'Referral status is Required';
     }
     if (empty($_POST['order_action'])) {
-        $errors['order Status'] = 'Order action is Required';
+        $errors['order Status'] = 'Referral action is Required';
     }
 
     if (!empty($errors)) {
@@ -40,10 +40,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
             if ($affected_rows >= 1) {
                 $data['success'] = true;
-                $data['message'] = $affected_rows .' Order Deleted!';
+                $data['message'] = $affected_rows .' Referral Deleted!';
             } else if($affected_rows <= 0) {
                 $data['success'] = false;
-                $data['message'] = 'Order with ID '.$childname.' Not Deleted';
+                $data['message'] = 'Referral with ID '.$childname.' Not Deleted';
             }
 
         } elseif (intval($order_action)  == 2){
@@ -64,10 +64,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
             if ($affected_rows >= 1) {
                 $data['success'] = true;
-                $data['message'] = $affected_rows .' Order Approved!';
+                $data['message'] = $affected_rows .' Referral Approved!';
             } else if($affected_rows <= 0) {
                 $data['success'] = false;
-                $data['message'] = 'Order with ID '.$childname.' Not Updated';
+                $data['message'] = 'Referral with ID '.$childname.' Not Updated';
             }
         }
 
