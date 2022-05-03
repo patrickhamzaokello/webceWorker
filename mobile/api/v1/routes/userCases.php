@@ -11,6 +11,7 @@ $db = $database->getConnString();
  
 $order = new Referral($db);
 
+//okello
 
 // $order->order_id = (isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0';
 
