@@ -1,10 +1,10 @@
 <?php
-$orderNew = array();
+$caseNew = array();
 
-$order_new = mysqli_query($con, "SELECT order_id FROM tblorder WHERE  order_status = 1 ORDER BY `tblorder`.`order_date` DESC ");
+$case_new_sql = mysqli_query($con, "SELECT id FROM cases WHERE  status = 0 ORDER BY `cases`.`datecreated` DESC ");
 
-while ($row = mysqli_fetch_array($order_new)) {
+while ($row = mysqli_fetch_array($case_new_sql)) {
 
-    array_push($orderNew, $row['order_id']);
+    array_push($caseNew, $row['id']);
 
 }

@@ -20,7 +20,7 @@ $con = $db->getConnString();
 require('../session.php');
 require('../queries/statsquery.php');
 require('../queries/order_preparing_query.php');
-require("../queries/classes/Order.php");
+require("../queries/classes/Cases.php");
 
 
 ?>

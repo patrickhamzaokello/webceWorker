@@ -21,7 +21,7 @@ $con = $db->getConnString();
 require('../session.php');
 require('../queries/statsquery.php');
 require('../queries/order_delivered_query.php');
-require("../queries/classes/Order.php");
+require("../queries/classes/Cases.php");
 
 
 ?>

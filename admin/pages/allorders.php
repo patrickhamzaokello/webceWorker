@@ -23,7 +23,7 @@ require('../queries/statsquery.php');
 require('../queries/order_new_query.php');
 require('../queries/order_preparing_query.php');
 require('../queries/order_delivered_query.php');
-require("../queries/classes/Order.php");
+require("../queries/classes/Cases.php");
 
 
 ?>

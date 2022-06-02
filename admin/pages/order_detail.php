@@ -21,7 +21,7 @@ $orderid = (isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0';
 
 require('../session.php');
 require('../queries/statsquery.php');
-require("../queries/classes/Order.php");
+require("../queries/classes/Cases.php");
 require("../queries/classes/OrderDetails.php");
 require("../queries/classes/Menu.php");
 

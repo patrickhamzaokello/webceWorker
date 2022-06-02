@@ -8,7 +8,7 @@ require('session.php');
 
 require('queries/statsquery.php');
 require('queries/order_new_query.php');
-require "queries/classes/Order.php";
+require "queries/classes/Cases.php";
 
 
 ?>
@@ -41,14 +41,10 @@ require "queries/classes/Order.php";
         </p>
       </div>
 
-      <div class="menu">
-        <div class="menuitem">
-          <a href="index">Famlink Admin Panel</a>
-        </div>
-      </div>
+    
 
       <a href="logout.php">
-        <div class="useraccount">Exit</div>
+        <div class="useraccount">Logout</div>
       </a></div>
     </nav>
   </header>
@@ -56,7 +52,7 @@ require "queries/classes/Order.php";
     <div class="sidepanel">
       <div class="about">
         <div class="title">
-          <img src="pages/assets/zodongologo.png" alt="">
+          <h1>Famlink</h1>
         </div>
       </div>
       <div class="sidemenu">
@@ -83,13 +79,13 @@ require "queries/classes/Order.php";
         <h6 class="sectionlable">All Major statistics</h6>
       </div>
       <div class="statistics">
-        <div class="card" style="background:#62ff8b">
+        <div class="card" style="background:#dae5ff">
           <div class="illustration">
             <img src="images/fontisto_shopping-basket.svg" alt="" />
           </div>
           <div class="stats">
             <p class="label">New Cases</p>
-            <p class="number"><?= $totalActiveOrders_stat  ?></p>
+            <p class="number"><?= $total_newCases  ?></p>
           </div>
         </div>
 
@@ -99,7 +95,7 @@ require "queries/classes/Order.php";
           </div>
           <div class="stats">
             <p class="label">Appointments</p>
-            <p class="number"><?= $totalMenuActivestat ?></p>
+            <p class="number"><?= $total_new_appointment_stat ?></p>
           </div>
 
         </div>
@@ -108,8 +104,8 @@ require "queries/classes/Order.php";
             <img src="images/bx_category.svg" alt="" />
           </div>
           <div class="stats">
-            <p class="label">Cases</p>
-            <p class="number"><?= $totalMenuType_stat ?></p>
+            <p class="label">Managed Cases</p>
+            <p class="number"><?= $total_handledCases ?></p>
           </div>
 
         </div>
@@ -119,51 +115,51 @@ require "queries/classes/Order.php";
           </div>
           <div class="stats">
             <p class="label">Users</p>
-            <p class="number"><?= $total_customers_stat ?></p>
+            <p class="number"><?= $total_user_stat ?></p>
           </div>
 
         </div>
       </div>
       <div class="sectionheading">
-        <h3 class="sectionlable">New Orders</h3>
-        <h6 class="sectionlable">All New Orders</h6>
+        <h3 class="sectionlable">Cases</h3>
+        <h6 class="sectionlable">All New Cases</h6>
       </div>
 
       <div class="elements">
 
         <div class="activities">
 
-          <?php if ($orderNew) : ?>
+          <?php if ($caseNew) : ?>
 
             <div class="childrencontainer">
 
 
               <?php
-              foreach ($orderNew as $row) :
+              foreach ($caseNew as $row) :
               ?>
 
+
                 <?php
-                $order = new Referral($con, $row);
+                $order = new Cases($con, $row);
                 ?>
 
                 <div class="product-card">
-                  <h4 class="orderID" style="display: none;"><?= $order->getOrder_id() ?></h4>
+                  <h4 class="orderID" style="display: none;"><?= $order->getId() ?></h4>
 
-                  <p class="artistlable">Order No <span class="ordervalue"> ZD416F<?= $order->getOrder_id()  ?> </span></p>
-                  <p class="artistlable">Date Added <span class="ordervalue"><?= $order->getOrder_date()  ?> </span></p>
+                  <p class="artistlable">Order No <span class="ordervalue"> <?= $order->getId()  ?> </span></p>
+                  <p class="artistlable">Date Added <span class="ordervalue"><?= $order->getName()  ?> </span></p>
                   <div class="addresslayout">
-                    <p class="artistlable">Address <span class="ordervalue"><?= $order->getOrder_address()[0]  ?> </span></p>
-                    <p class="artistlable">Contact <span class="ordervalue"><?= $order->getOrder_address()[1]  ?> </span></p>
+                    <p class="artistlable">Address <span class="ordervalue"><?= $order->getName() ?> </span></p>
+                    <p class="artistlable">Contact <span class="ordervalue"><?= $order->getName()  ?> </span></p>
 
                   </div>
-                  <p class="artistlable">Tag <span class="ordervalue"><?= $order->getProcessed_by()  ?> </span> <span class="artistlable">Status <span class="ordervalue smalltag"><?= $order->getOrder_status()  ?></span> </span></p>
-                  <p class="artistlable">Total Amount (UGX) <span class="ordervalue"><?= number_format($order->getTotal_amount())  ?> </span></p>
+                  <p class="artistlable">Tag <span class="ordervalue"><?= $order->getName() ?> </span> <span class="artistlable">Status <span class="ordervalue smalltag"><?= $order->getStatus()  ?></span> </span></p>
 
 
-                  <input type="hidden" name="artistid" value="<?= $order->getOrder_id() ?>">
+                  <input type="hidden" name="artistid" value="<?= $order->getId() ?>">
 
                   <div class="product-card__actions">
-                    <a href="pages/order_detail.php?id=<?= $order->getOrder_id() ?>" class="btn btn-primary my-2  sponsorbutton">View Details</a>
+                    <a href="pages/order_detail.php?id=<?= $order->getId() ?>" class="btn btn-primary my-2  sponsorbutton">View Details</a>
                   </div>
                 </div>
 

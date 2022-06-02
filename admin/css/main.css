@@ -4,6 +4,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+  caret-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -139,9 +140,15 @@ header nav .menu .menuitem img {
 }
 
 header nav .useraccount {
-  background: #000000;
+  background: #f8f7ff;
   padding: 6px 45px;
-  border: 1px solid #000000;
+  border: none;
+  color: #666;
+  border-radius: 8px;
+}
+
+header nav .useraccount:hover {
+  background-color: #002066;
   color: #fff;
 }
 
@@ -155,7 +162,7 @@ main {
 }
 
 main .sidepanel {
-  background: #000000;
+  background: #103AA6;
   width: 15%;
   height: 100vh;
 }
@@ -205,7 +212,7 @@ main .sidepanel .sidemenu .menu {
   color: #fff;
   padding: 10px 20px;
   margin: 0.5em 0;
-  border: 1px solid #000000;
+  border: 1px solid #2c53af;
   border-radius: 5px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -217,11 +224,11 @@ main .sidepanel .sidemenu .menu img {
 }
 
 main .sidepanel .sidemenu .active {
-  border: 1px solid #0eb62a !important;
+  border: 1px solid #fff !important;
 }
 
 main .sidepanel .sidemenu .menu:hover {
-  border: 1px solid #0eb62a !important;
+  border: 1px solid #fff !important;
   color: white !important;
 }
 

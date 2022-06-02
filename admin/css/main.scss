@@ -4,6 +4,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+  caret-color: rgba(0,0,0,0);
 }
 
 body {
@@ -129,9 +130,14 @@ header {
     }
 
     .useraccount {
-      background: #000000;
+      background: #f8f7ff;
       padding: 6px 45px;
-      border: 1px solid #000000;
+      border: none;
+      color: #666;
+      border-radius: 8px;
+    }
+    .useraccount:hover {
+      background-color:#002066 ;
       color: #fff;
     }
   }
@@ -142,7 +148,7 @@ main {
   box-sizing: border-box;
 
   .sidepanel {
-    background: #000000;
+    background: #103AA6;
     width: 15%;
     height: 100vh;
 
@@ -178,7 +184,7 @@ main {
         color: #fff;
         padding: 10px 20px;
         margin: 0.5em 0;
-        border: 1px solid #000000;
+        border: 1px solid #2c53af;
         border-radius: 5px;
         box-sizing: border-box;
 
@@ -190,11 +196,11 @@ main {
       }
 
       .active {
-        border: 1px solid #0eb62a !important;
+        border: 1px solid #fff !important;
       }
 
       .menu:hover {
-        border: 1px solid #0eb62a !important;
+        border: 1px solid #fff !important;
         color: rgb(255, 255, 255) !important;
       }
     }
