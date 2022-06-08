@@ -354,8 +354,8 @@ main .mainpanel .elements .activities {
 main .mainpanel .elements .activities .childrencontainer {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(320px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  -ms-grid-columns: (minmax(450px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   grid-gap: 1rem;
 }
 
@@ -491,29 +491,25 @@ main .mainpanel .elements .activities .childrencontainer .product-card .linkss a
 }
 
 main .mainpanel .elements .activities .childrencontainer .product-card .sponsorbutton {
-  background: white !important;
-  color: black !important;
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
   border: 1px solid #e5e5e5 !important;
   margin-top: 1.2em !important;
-  background: #000000 !important;
+  background: #1845B8 !important;
   color: #fff !important;
-  border: 1px solid #000000 !important;
+  border: 1px solid #1845B8 !important;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
   font-size: 12px;
-  padding: 15px 0;
+  padding: 9px;
 }
 
 main .mainpanel .elements .activities .childrencontainer .product-card .sponsorbutton:hover {
   background: white !important;
-  color: black !important;
+  color: #1845B8 !important;
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
-  border: 1px solid #e5e5e5 !important;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  border: 1px solid #1845B8 !important;
 }
 
 main .mainpanel .elements .activities .menuitemscontatiner {
