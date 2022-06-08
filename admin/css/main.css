@@ -398,16 +398,19 @@ main .mainpanel .elements .activities .childrencontainer .product-card .imagecon
   font-size: 14px;
 }
 
-main .mainpanel .elements .activities .childrencontainer .product-card .imagecontainer .categoryid {
-  margin: 0 1em;
-}
-
-main .mainpanel .elements .activities .childrencontainer .product-card .imagecontainer .case_location {
-  color: #00993d;
-}
-
 main .mainpanel .elements .activities .childrencontainer .product-card .casedescription {
   margin: 1em 0;
+}
+
+main .mainpanel .elements .activities .childrencontainer .product-card .casedescription .categoryid {
+  margin-right: 1em;
+  color: black;
+  font-weight: bold;
+}
+
+main .mainpanel .elements .activities .childrencontainer .product-card .casedescription .case_location {
+  color: #009688;
+  font-weight: bold;
 }
 
 main .mainpanel .elements .activities .childrencontainer .product-card .casedescription h1 {

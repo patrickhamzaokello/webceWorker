@@ -348,18 +348,23 @@ main {
                 font-size: 14px;
               }
 
-              .categoryid{
-                margin: 0 1em;
-
-              }
-
-              .case_location {
-                color: #00993d;
-              }
+             
             }
 
             .casedescription {
               margin: 1em 0;
+
+              .categoryid{
+                margin-right: 1em;
+                color: rgb(0, 0, 0);
+                font-weight: bold;
+
+              }
+
+              .case_location {
+                color: #009688;
+                font-weight: bold;
+              }
 
               h1 {
                 font-size: 15px;

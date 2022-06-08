@@ -153,13 +153,14 @@ require "queries/classes/Cases.php";
                     <img src="<?= $order->getPicture() ?>" alt="">
                     <div class="imgtext">
                       <h5 class="casetitle"><?= $order->getReportedbyUser() ?></h5>
-                      <p class="case_info"><?= $order->getDatecreated() ?> <span class="categoryid"><?= $order->getCategoryId() ?></span><span class="case_location"> <?= $order->getLocation() ?> </span></p>
+                      <p class="case_info"><?= $order->getDatecreated() ?> </p>
                     </div>
                   </div>
 
                   <div class="casedescription">
                     <h1><?= $order->getTitle() ?></h1>
                     <p><?= $order->getDescription() ?> </p>
+                    <p><span class="categoryid">Tag: <?= $order->getCategoryId() ?></span> <span class="case_location">Address:  <?= $order->getLocation() ?> </span> </p>
 
                   </div>
 
