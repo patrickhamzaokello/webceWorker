@@ -303,12 +303,13 @@ main .mainpanel .statistics {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 0;
+  grid-gap: 1em;
+  padding: 1em 0;
 }
 
 main .mainpanel .statistics .card {
   padding: 2em 2.5em;
   background: #fff;
-  margin: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -347,8 +348,8 @@ main .mainpanel .elements {
 
 main .mainpanel .elements .activities {
   width: 100%;
-  background: #f8f7ff;
-  padding: 1em;
+  background: #ffffff;
+  padding: 2em;
 }
 
 main .mainpanel .elements .activities .childrencontainer {
@@ -357,10 +358,11 @@ main .mainpanel .elements .activities .childrencontainer {
   -ms-grid-columns: (minmax(450px, 1fr))[auto-fill];
       grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   grid-gap: 1rem;
+  margin-top: 1em;
 }
 
 main .mainpanel .elements .activities .childrencontainer .product-card {
-  background: #fff;
+  background: #f9f9f9;
   padding: 1.5em;
   display: -ms-grid;
   display: grid;
@@ -395,7 +397,6 @@ main .mainpanel .elements .activities .childrencontainer .product-card .imagecon
 
 main .mainpanel .elements .activities .childrencontainer .product-card .imagecontainer .case_info {
   font-size: 14px;
-  font-weight: 700;
 }
 
 main .mainpanel .elements .activities .childrencontainer .product-card .imagecontainer .categoryid {
@@ -411,9 +412,15 @@ main .mainpanel .elements .activities .childrencontainer .product-card .casedesc
 }
 
 main .mainpanel .elements .activities .childrencontainer .product-card .casedescription h1 {
-  font-size: 18px;
+  font-size: 15px;
   color: #1845b8;
-  font-weight: 700;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 main .mainpanel .elements .activities .childrencontainer .product-card .casedescription p {
@@ -603,10 +610,6 @@ main .mainpanel .elements .activities .menuitemscontatiner .MenuItemCard .menuit
 }
 
 main .mainpanel .elements .activities .cartitemcontainer .cartItem {
-  background: #fff;
-  -webkit-box-shadow: 1px 4px 6px 0px #f1f1f1;
-          box-shadow: 1px 4px 6px 0px #f1f1f1;
-  border-radius: 10px;
   padding: 2em 4em;
 }
 

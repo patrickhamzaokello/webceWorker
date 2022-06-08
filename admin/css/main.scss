@@ -272,11 +272,12 @@ main {
       display: flex;
       flex-wrap: wrap;
       margin: 0;
+      grid-gap: 1em;
+      padding: 1em 0;
 
       .card {
         padding: 2em 2.5em;
         background: #fff;
-        margin: 1em;
         display: flex;
         align-items: center;
         border-radius: 10px;
@@ -310,15 +311,16 @@ main {
 
       .activities {
         width: 100%;
-        background: #f8f7ff;
-        padding: 1em;
+        background: #ffffff;
+        padding: 2em;
 
         .childrencontainer {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
           grid-gap: 1rem;
+          margin-top: 1em;
           .product-card {
-            background: #fff;
+            background: #f9f9f9;
             padding: 1.5em;
             display: grid;
             margin-right: 2em;
@@ -345,7 +347,6 @@ main {
 
               .case_info {
                 font-size: 14px;
-                font-weight: 700;
               }
 
               .categoryid{
@@ -362,9 +363,15 @@ main {
               margin: 1em 0;
 
               h1 {
-                font-size: 18px;
+                font-size: 15px;
                 color: #1845b8;
-                font-weight: 700;
+                display: -webkit-box;
+                -webkit-line-clamp: 2; /* number of lines to show */
+                line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+
               }
 
               p {
@@ -538,9 +545,6 @@ main {
 
         .cartitemcontainer {
           .cartItem {
-            background: #fff;
-            box-shadow: 1px 4px 6px 0px #f1f1f1;
-            border-radius: 10px;
             padding: 2em 4em;
 
             img {

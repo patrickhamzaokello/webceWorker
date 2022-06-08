@@ -8,6 +8,7 @@ class Cases
     private $id;
     private $name;
     private $picture;
+    private $title;
     private $description;
     private $location;
     private $longitude;
@@ -26,7 +27,7 @@ class Cases
         $this->con = $con;
         $this->id = $id;
 
-        $query = mysqli_query($this->con, "SELECT `id`, `name`, `picture`, `description`, `location`, `longitude`, `latitude`, `category_id`, `reportedby_id`, `datecreated`, `dateupdated`, `status` FROM ".$this->TABLE_NAME." WHERE id = $this->id ");
+        $query = mysqli_query($this->con, "SELECT `id`, `name`, `picture`,`title`, `description`, `location`, `longitude`, `latitude`, `category_id`, `reportedby_id`, `datecreated`, `dateupdated`, `status` FROM ".$this->TABLE_NAME." WHERE id = $this->id ");
         $case_fetched = mysqli_fetch_array($query);
 
 
@@ -35,6 +36,7 @@ class Cases
             $this->id = null;
             $this->name = null;
             $this->picture = null;
+            $this->title = null;
             $this->description = null;
             $this->location = null;
             $this->longitude = null;
@@ -49,6 +51,7 @@ class Cases
             $this->id = $case_fetched['id'];
             $this->name = $case_fetched['name'];
             $this->picture = $case_fetched['picture'];
+            $this->title = $case_fetched['title'];
             $this->description = $case_fetched['description'];
             $this->location = $case_fetched['location'];
             $this->longitude = $case_fetched['longitude'];
@@ -79,6 +82,13 @@ class Cases
     {
         return $this->picture;
     }
+
+    
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
 
 
     public function getDescription()

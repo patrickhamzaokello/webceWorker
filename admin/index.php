@@ -39,11 +39,11 @@ require "queries/classes/Cases.php";
         <p>
           <span><a href="index">Admin /</a></span>
           <a href="index"><?= $login_session = "PK";
-              $login_session ?></a>
+                          $login_session ?></a>
         </p>
       </div>
 
-    
+
 
       <a href="logout.php">
         <div class="useraccount">Logout</div>
@@ -81,13 +81,13 @@ require "queries/classes/Cases.php";
         <h6 class="sectionlable">All Major statistics</h6>
       </div>
       <div class="statistics">
-        <div class="card" style="background:#dae5ff">
+        <div class="card" style="background:#1845b8">
           <div class="illustration">
             <img src="images/fontisto_shopping-basket.svg" alt="" />
           </div>
           <div class="stats">
-            <p class="label">New Cases</p>
-            <p class="number"><?= $total_newCases  ?></p>
+            <p class="label" style="color: #fff">New Cases</p>
+            <p class="number" style="color: #fff"><?= $total_newCases  ?></p>
           </div>
         </div>
 
@@ -122,14 +122,16 @@ require "queries/classes/Cases.php";
 
         </div>
       </div>
-      <div class="sectionheading">
-        <h3 class="sectionlable">Cases</h3>
-        <h6 class="sectionlable">All New Cases</h6>
-      </div>
+
 
       <div class="elements">
 
         <div class="activities">
+
+          <div class="sectionheading">
+            <h3 class="sectionlable">Cases</h3>
+            <h6 class="sectionlable">All New Reported Cases</h6>
+          </div>
 
           <?php if ($caseNew) : ?>
 
@@ -146,20 +148,20 @@ require "queries/classes/Cases.php";
                 ?>
 
                 <div class="product-card">
-               
-                <div class="imagecontainer">
-                  <img src="<?= $order->getPicture() ?>" alt="">
-                  <div class="imgtext">
-                    <h5 class="casetitle"><?= $order->getReportedbyUser() ?></h5>
-                    <p class="case_info"><?= $order->getDatecreated() ?> <span class="categoryid"><?= $order->getCategoryId() ?></span><span class="case_location"> <?= $order->getLocation() ?> </span></p>
-                  </div>
-                </div>
 
-                <div class="casedescription">
-                  <h1>Boy looking for mom</h1>
-                  <p><?= $order->getDescription() ?> </p>
-              
-                </div>
+                  <div class="imagecontainer">
+                    <img src="<?= $order->getPicture() ?>" alt="">
+                    <div class="imgtext">
+                      <h5 class="casetitle"><?= $order->getReportedbyUser() ?></h5>
+                      <p class="case_info"><?= $order->getDatecreated() ?> <span class="categoryid"><?= $order->getCategoryId() ?></span><span class="case_location"> <?= $order->getLocation() ?> </span></p>
+                    </div>
+                  </div>
+
+                  <div class="casedescription">
+                    <h1><?= $order->getTitle() ?></h1>
+                    <p><?= $order->getDescription() ?> </p>
+
+                  </div>
 
 
                   <input type="hidden" name="artistid" value="<?= $order->getId() ?>">
