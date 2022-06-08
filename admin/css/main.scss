@@ -4,7 +4,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
-  caret-color: rgba(0,0,0,0);
+  caret-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -137,7 +137,7 @@ header {
       border-radius: 8px;
     }
     .useraccount:hover {
-      background-color:#002066 ;
+      background-color: #002066;
       color: #fff;
     }
   }
@@ -148,7 +148,7 @@ main {
   box-sizing: border-box;
 
   .sidepanel {
-    background: #103AA6;
+    background: #103aa6;
     width: 15%;
     height: 100vh;
 
@@ -188,7 +188,6 @@ main {
         border-radius: 5px;
         box-sizing: border-box;
 
-
         img {
           margin-right: 0.5em;
           width: 18px;
@@ -227,9 +226,7 @@ main {
     }
 
     .sectionheading {
-      padding: 0 1em;
       font-family: "Montserrat", sans-serif;
-      margin-top: 1em;
 
       h3 {
         font-size: 18px;
@@ -329,6 +326,64 @@ main {
             font-size: 15px;
             border-radius: 10px;
 
+            .imagecontainer {
+              display: flex;
+              align-items: center;
+
+              img {
+                width: 92px;
+                height: 92px;
+                object-fit: cover;
+                border-radius: 50%;
+                margin-right: 1em;
+              }
+
+              .casetitle {
+                color: #1845b8;
+                font-size: 14px;
+              }
+
+              .case_info {
+                font-size: 14px;
+                font-weight: 700;
+              }
+
+              .categoryid{
+                margin: 0 1em;
+
+              }
+
+              .case_location {
+                color: #00993d;
+              }
+            }
+
+            .casedescription {
+              margin: 1em 0;
+
+              h1 {
+                font-size: 18px;
+                color: #1845b8;
+                font-weight: 700;
+              }
+
+              p {
+                font-size: 15px;
+                color: #000000;
+                text-overflow: ellipsis;
+                margin-top: 0.5em;
+                display: -webkit-box;
+                -webkit-line-clamp: 3; /* number of lines to show */
+                line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+              }
+            }
+
+            .product-card__actions {
+              width: 122px;
+            }
+
             .artistlable {
               color: gray;
               margin-top: 0.1em;
@@ -389,6 +444,8 @@ main {
               color: #fff !important;
               border: 1px solid #000000 !important;
               transition: all 0.3s ease-in-out;
+              font-size: 12px;
+              padding: 15px 0;
             }
 
             .sponsorbutton:hover {
@@ -483,37 +540,27 @@ main {
         }
 
         .cartitemcontainer {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-          grid-gap: 1rem;
           .cartItem {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
             background: #fff;
             box-shadow: 1px 4px 6px 0px #f1f1f1;
             border-radius: 10px;
+            padding: 2em 4em;
 
             img {
-              width: 100px;
-              height: 100px;
+              width: 225px;
+              height: 225px;
               object-fit: cover;
-              border-radius: 10px;
+              border-radius: 5px;
             }
 
             .cartItemdetail {
-              display: block;
-              text-transform: capitalize;
-              font-size: 15px;
-              flex: 1 1 0;
-
               .menutitle {
-                margin: 0 1em;
+                font-weight: 700;
+                padding: 1em 0;
+              }
 
-                .cartlabel {
-                  color: #bebebe;
-                  margin-right: 0.5em;
-                }
+              .menu_desc {
+                line-height: 1.4em;
               }
             }
           }
@@ -586,8 +633,7 @@ main {
 
   .orderheading {
     display: flex;
-    padding: 0 1em;
-    margin: 1em 0;
+    margin: 2em 0;
     flex-wrap: wrap;
 
     .ordertimediv {
@@ -604,7 +650,7 @@ main {
 
   .cartdetailbutton {
     display: flex;
-    margin: 2em 1em;
+    margin: 2em 0;
 
     button {
       padding: 13px 27px;
@@ -667,8 +713,6 @@ main {
     display: none;
     margin: 0 -1em !important;
   }
-
-  
 
   .sponsorchildnowbtn {
     background: #000;
@@ -795,11 +839,10 @@ main {
     color: rgb(255, 255, 255) !important;
   }
 
-  #error{
+  #error {
     color: red;
     padding: 10px 0;
     font-size: 15px;
-
   }
 
   .smalltag {
@@ -845,38 +888,38 @@ main {
     justify-content: center;
     align-items: center;
   }
-  
+
   .dot {
     position: absolute;
     width: 20px;
     height: 20px;
     border-radius: 50%;
   }
-  
+
   .dot-1 {
     background-color: #3db5e9;
     z-index: 4;
     animation: moveDot1 2s infinite ease;
   }
-  
+
   .dot-2 {
     background-color: #1de1c0;
     z-index: 3;
     animation: moveDot2 2s infinite ease;
   }
-  
+
   .dot-3 {
     background-color: #005cff;
     z-index: 2;
     animation: moveDot3 2s infinite ease;
   }
-  
+
   .dot-4 {
     background-color: #03007f;
     z-index: 1;
     animation: moveDot4 2s infinite ease;
   }
-  
+
   @keyframes moveDot1 {
     from {
       transform: rotate(0deg);
@@ -884,7 +927,7 @@ main {
       transform-origin: -20px -20px;
       transform-style: preserve-3D;
     }
-  
+
     to {
       transform: rotate(-360deg);
       /* transform-origin: top left */
@@ -892,7 +935,7 @@ main {
       transform-style: preserve-3D;
     }
   }
-  
+
   @keyframes moveDot2 {
     from {
       transform: rotate(0deg);
@@ -900,7 +943,7 @@ main {
       transform-origin: 40px -20px;
       transform-style: preserve-3D;
     }
-  
+
     to {
       transform: rotate(-360deg);
       /* transform-origin: top right */
@@ -908,7 +951,7 @@ main {
       transform-style: preserve-3D;
     }
   }
-  
+
   @keyframes moveDot3 {
     from {
       transform: rotate(0deg);
@@ -916,7 +959,7 @@ main {
       transform-origin: -20px 40px;
       transform-style: preserve-3D;
     }
-  
+
     to {
       transform: rotate(-360deg);
       /* transform-origin: bottom left */
@@ -924,7 +967,7 @@ main {
       transform-style: preserve-3D;
     }
   }
-  
+
   @keyframes moveDot4 {
     from {
       transform: rotate(0deg);
@@ -932,7 +975,7 @@ main {
       transform-origin: 40px 40px;
       transform-style: preserve-3D;
     }
-  
+
     to {
       transform: rotate(-360deg);
       /* transform-origin: bottom right */

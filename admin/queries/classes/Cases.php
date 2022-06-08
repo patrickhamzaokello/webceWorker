@@ -115,6 +115,11 @@ class Cases
         return $this->reportedby_id;
     }
 
+    public function getReportedbyUser(){
+        $re_user = new User($this->con, $this->getReportedbyId());
+        return $re_user->getFullName();
+    }
+
     public function getDatecreated()
     {
 
@@ -149,6 +154,10 @@ class Cases
         }
 
         return $case_status;
+    }
+
+    public  function getStatusID(){
+        return $this->status;
     }
 
 

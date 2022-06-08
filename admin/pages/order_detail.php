@@ -21,9 +21,8 @@ $orderid = (isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0';
 
 require('../session.php');
 require('../queries/statsquery.php');
+require("../queries/classes/User.php");
 require("../queries/classes/Cases.php");
-require("../queries/classes/OrderDetails.php");
-require("../queries/classes/Menu.php");
 
 
 ?>
@@ -39,11 +38,7 @@ require("../queries/classes/Menu.php");
                 </p>
             </div>
 
-            <div class="menu">
-                <div class="menuitem">
-                    <a href="../index">Order Details</a>
-                </div>
-            </div>
+
 
             <a href="../logout.php">
                 <div class="useraccount">Exit</div>
@@ -78,122 +73,89 @@ require("../queries/classes/Menu.php");
         <div class="mainpanel">
 
             <?php
-            $order = new Referral($con, $orderid);
+            $order = new Cases($con, $orderid);
 
-            if ($order->getOrder_id() != null) :
+            if ($order->getId() != null) :
             ?>
 
 
-                <div class="sectionheading">
-                    <h3 class="sectionlable">Order Details</h3>
-                    <h6 class="sectionlable">Manage this Order</h6>
-
-                    <h5>Order status: <?= $order->getOrder_status()  ?></h5>
-                </div>
 
 
-                <div class="orderheading">
-
-                    <div class="ordertimediv">
-                        <h6>Order time</h6>
-                        <h5><?= $order->getOrder_date()  ?></h5>
-                    </div>
-                    <div class="ordertimediv">
-                        <h6>Address</h6>
-                        <h5><?= $order->getOrder_address()[0] ?></h5>
-                    </div>
-                    <div class="ordertimediv">
-                        <h6>Contact</h6>
-                        <h5><?= $order->getOrder_address()[1]  ?></h5>
-                    </div>
-                    <div class="ordertimediv">
-                        <h6>Username</h6>
-                        <h5><?= $order->getCustomer_id() ?></h5>
-                    </div>
-                    <div class="ordertimediv">
-                        <h6>Order No</h6>
-                        <h5> ZD416F<?= $order->getOrder_id() ?></h5>
-                    </div>
-                    <div class="ordertimediv">
-                        <h6>Total Amount (UGX)</h6>
-                        <h5><?= number_format($order->getTotal_amount())  ?></h5>
-                    </div>
-
-                </div>
-
-
-                <div class="cartdetailbutton">
-                    <div class="cancebutton_parent">
-                        <input class="order_id_input" type="hidden" name="orderID" value="<?= $order->getOrder_id() ?>">
-                        <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getOrder_statusID() ?>">
-                        <button class="cancelbutton">Delete Order</button>
-                    </div>
-                    <div class="approvebutton_parent">
-                        <input class="order_id_input" type="hidden" name="orderID" value="<?= $order->getOrder_id() ?>">
-                        <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getOrder_statusID() ?>">
-                        <button class="approvebutton">Approve Order</button>
-                    </div>
-
-                </div>
-
-                <div class="small_sectionheading">
-                    <h3 class="smallsectionlable">Cart Items</h3>
-                    <h6 class="smallsectionlable">All Cart Items in this Order</h6>
-                </div>
 
 
                 <div class="elements">
-                    <?php
-
-                    $tblorderdetails = array();
-
-                    $orderdetailitem = mysqli_query($con, "SELECT order_details_id FROM tblorderdetails WHERE  order_id = " . $orderid . "");
-
-                    while ($row = mysqli_fetch_array($orderdetailitem)) {
-                        array_push($tblorderdetails, $row['order_details_id']);
-                    }
 
 
-                    if ($tblorderdetails) :
+                    <div class="activities">
 
-                    ?>
-
-                        <div class="activities">
-
-                            <div class="cartitemcontainer">
+                        <div class="cartitemcontainer">
 
 
-                                <?php
-                                foreach ($tblorderdetails as $row) :
-                                ?>
+                            <div class="cartItem">
 
-                                    <?php
-                                    $cartItem = new OrderDetails($con, $row);
-                                    ?>
 
-                                    <div class="cartItem">
-                                        <img src="<?= $cartItem->getMenuImage()  ?>" alt="">
+                                <div class="sectionheading">
+                                    <h3 class="sectionlable">Case Report Details</h3>
+                           
+                                </div>
 
-                                        <div class="cartItemdetail">
-                                            <div class="menutitle"><?= $cartItem->getMenuName()  ?></div>
-                                            <div class="menutitle"><span class="cartlabel">Qty</span>X <?= $cartItem->getNo_of_serving()  ?></div>
-                                            <div class="menutitle"><span class="cartlabel">Unit Price (Ugx)</span><?= $cartItem->getAmount()  ?> </div>
-                                            <div class="menutitle"><span class="cartlabel">Total (Ugx) </span><?= $cartItem->getTotal_amount()  ?> </div>
-                                        </div>
+
+                                <div class="orderheading">
+                                   
+                                    <div class="ordertimediv">
+                                        <h6>Case ID</h6>
+                                        <h5>FLCW-<?= $order->getId() ?></h5>
+                                    </div>
+                                    <div class="ordertimediv">
+                                        <h6>Reported Time</h6>
+                                        <h5><?= $order->getDatecreated() ?></h5>
+                                    </div>
+                                  
+                                    <div class="ordertimediv">
+                                        <h6>Case Status</h6>
+                                        <h5><?= $order->getStatus() ?></h5>
+                                    </div>
+                                    <div class="ordertimediv">
+                                        <h6>Case category</h6>
+                                        <h5><?= $order->getCategoryId() ?></h5>
+                                    </div>
+                                    <div class="ordertimediv">
+                                        <h6>Reporter</h6>
+                                        <h5><?= $order->getReportedbyUser() ?></h5>
                                     </div>
 
-                                <?php endforeach ?>
+                                </div>
 
+
+
+                                <img src="<?= $order->getPicture() ?>" alt="">
+
+                                <div class="cartItemdetail">
+                                    <div class="menutitle">Boy looking for mother and Father
+                                    </div>
+                                    <div class="menu_desc"><?= $order->getDescription() ?>
+                                    </div>
+                                </div>
+
+                                <div class="cartdetailbutton">
+                                    <div class="cancebutton_parent">
+                                        <input class="order_id_input" type="hidden" name="orderID" value="<?= $order->getId() ?>">
+                                        <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusID() ?>">
+                                        <button class="cancelbutton">Delete Case</button>
+                                    </div>
+                                    <div class="approvebutton_parent">
+                                        <input class="order_id_input" type="hidden" name="orderID" value="<?= $order->getId() ?>">
+                                        <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusID() ?>">
+                                        <button class="approvebutton">Approve Case</button>
+                                    </div>
+
+                                </div>
                             </div>
-
-
-
 
                         </div>
 
-                    <?php else :  ?>
-                        No Order Detail exists
-                    <?php endif ?>
+                    </div>
+
 
                 </div>
 
@@ -224,7 +186,8 @@ require("../queries/classes/Menu.php");
                                 <input type="submit" value="Approve" style="width: 100% !important;" class="sponsorchildnowbtn">
                             </div>
                             <div class="form-group">
-                                <button type="reset" id="cancelbtn" style="background: #fff;border: 1px solid #000;padding: 10px 20px;width: 100%;color: #000; border-radius: 5px;" onclick="cancelsponsohip()">Cancel </button>
+                                <button type="reset" id="cancelbtn" style="background: #fff;border: 1px solid #000;padding: 10px 20px;width: 100%;color: #000; border-radius: 5px;" onclick="cancelsponsohip()">Cancel
+                                </button>
                             </div>
                         </form>
 
@@ -242,8 +205,7 @@ require("../queries/classes/Menu.php");
                 </div>
 
 
-
-            <?php else :  ?>
+            <?php else : ?>
                 Order Detail Failed
             <?php endif ?>
 
@@ -252,7 +214,6 @@ require("../queries/classes/Menu.php");
 
 
     <script src="../js/process_order_detail.js"></script>
-
 
 
 </body>

@@ -8,7 +8,9 @@ require('session.php');
 
 require('queries/statsquery.php');
 require('queries/order_new_query.php');
+require "queries/classes/User.php";
 require "queries/classes/Cases.php";
+
 
 
 ?>
@@ -144,16 +146,20 @@ require "queries/classes/Cases.php";
                 ?>
 
                 <div class="product-card">
-                  <h4 class="orderID" style="display: none;"><?= $order->getId() ?></h4>
-
-                  <p class="artistlable">Order No <span class="ordervalue"> <?= $order->getId()  ?> </span></p>
-                  <p class="artistlable">Date Added <span class="ordervalue"><?= $order->getName()  ?> </span></p>
-                  <div class="addresslayout">
-                    <p class="artistlable">Address <span class="ordervalue"><?= $order->getName() ?> </span></p>
-                    <p class="artistlable">Contact <span class="ordervalue"><?= $order->getName()  ?> </span></p>
-
+               
+                <div class="imagecontainer">
+                  <img src="<?= $order->getPicture() ?>" alt="">
+                  <div class="imgtext">
+                    <h5 class="casetitle"><?= $order->getReportedbyUser() ?></h5>
+                    <p class="case_info"><?= $order->getDatecreated() ?> <span class="categoryid"><?= $order->getCategoryId() ?></span><span class="case_location"> <?= $order->getLocation() ?> </span></p>
                   </div>
-                  <p class="artistlable">Tag <span class="ordervalue"><?= $order->getName() ?> </span> <span class="artistlable">Status <span class="ordervalue smalltag"><?= $order->getStatus()  ?></span> </span></p>
+                </div>
+
+                <div class="casedescription">
+                  <h1>Boy looking for mom</h1>
+                  <p><?= $order->getDescription() ?> </p>
+              
+                </div>
 
 
                   <input type="hidden" name="artistid" value="<?= $order->getId() ?>">

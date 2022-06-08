@@ -162,7 +162,7 @@ main {
 }
 
 main .sidepanel {
-  background: #103AA6;
+  background: #103aa6;
   width: 15%;
   height: 100vh;
 }
@@ -254,9 +254,7 @@ main .mainpanel .createnew a {
 }
 
 main .mainpanel .sectionheading {
-  padding: 0 1em;
   font-family: "Montserrat", sans-serif;
-  margin-top: 1em;
 }
 
 main .mainpanel .sectionheading h3 {
@@ -372,6 +370,69 @@ main .mainpanel .elements .activities .childrencontainer .product-card {
   border-radius: 10px;
 }
 
+main .mainpanel .elements .activities .childrencontainer .product-card .imagecontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .mainpanel .elements .activities .childrencontainer .product-card .imagecontainer img {
+  width: 92px;
+  height: 92px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  margin-right: 1em;
+}
+
+main .mainpanel .elements .activities .childrencontainer .product-card .imagecontainer .casetitle {
+  color: #1845b8;
+  font-size: 14px;
+}
+
+main .mainpanel .elements .activities .childrencontainer .product-card .imagecontainer .case_info {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+main .mainpanel .elements .activities .childrencontainer .product-card .imagecontainer .categoryid {
+  margin: 0 1em;
+}
+
+main .mainpanel .elements .activities .childrencontainer .product-card .imagecontainer .case_location {
+  color: #00993d;
+}
+
+main .mainpanel .elements .activities .childrencontainer .product-card .casedescription {
+  margin: 1em 0;
+}
+
+main .mainpanel .elements .activities .childrencontainer .product-card .casedescription h1 {
+  font-size: 18px;
+  color: #1845b8;
+  font-weight: 700;
+}
+
+main .mainpanel .elements .activities .childrencontainer .product-card .casedescription p {
+  font-size: 15px;
+  color: #000000;
+  text-overflow: ellipsis;
+  margin-top: 0.5em;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+main .mainpanel .elements .activities .childrencontainer .product-card .product-card__actions {
+  width: 122px;
+}
+
 main .mainpanel .elements .activities .childrencontainer .product-card .artistlable {
   color: gray;
   margin-top: 0.1em;
@@ -441,6 +502,8 @@ main .mainpanel .elements .activities .childrencontainer .product-card .sponsorb
   border: 1px solid #000000 !important;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  font-size: 12px;
+  padding: 15px 0;
 }
 
 main .mainpanel .elements .activities .childrencontainer .product-card .sponsorbutton:hover {
@@ -543,53 +606,29 @@ main .mainpanel .elements .activities .menuitemscontatiner .MenuItemCard .menuit
   color: #3f3f3f;
 }
 
-main .mainpanel .elements .activities .cartitemcontainer {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(320px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  grid-gap: 1rem;
-}
-
 main .mainpanel .elements .activities .cartitemcontainer .cartItem {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background: #fff;
   -webkit-box-shadow: 1px 4px 6px 0px #f1f1f1;
           box-shadow: 1px 4px 6px 0px #f1f1f1;
   border-radius: 10px;
+  padding: 2em 4em;
 }
 
 main .mainpanel .elements .activities .cartitemcontainer .cartItem img {
-  width: 100px;
-  height: 100px;
+  width: 225px;
+  height: 225px;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 10px;
-}
-
-main .mainpanel .elements .activities .cartitemcontainer .cartItem .cartItemdetail {
-  display: block;
-  text-transform: capitalize;
-  font-size: 15px;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 0px;
-          flex: 1 1 0;
+  border-radius: 5px;
 }
 
 main .mainpanel .elements .activities .cartitemcontainer .cartItem .cartItemdetail .menutitle {
-  margin: 0 1em;
+  font-weight: 700;
+  padding: 1em 0;
 }
 
-main .mainpanel .elements .activities .cartitemcontainer .cartItem .cartItemdetail .menutitle .cartlabel {
-  color: #bebebe;
-  margin-right: 0.5em;
+main .mainpanel .elements .activities .cartitemcontainer .cartItem .cartItemdetail .menu_desc {
+  line-height: 1.4em;
 }
 
 main .mainpanel .orderfilter {
@@ -665,8 +704,7 @@ main .orderheading {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 0 1em;
-  margin: 1em 0;
+  margin: 2em 0;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -686,7 +724,7 @@ main .cartdetailbutton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 2em 1em;
+  margin: 2em 0;
 }
 
 main .cartdetailbutton button {

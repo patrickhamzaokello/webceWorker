@@ -15,7 +15,7 @@ $row = mysqli_fetch_array($handledCases_sql);
 $total_handledCases = $row['handledCases'];
 
 //get number of $total_users_sql
-$total_users_sql = mysqli_query($con, "SELECT COUNT(*) as total_users FROM tblcustomer WHERE userRole = 1 ");
+$total_users_sql = mysqli_query($con, "SELECT COUNT(*) as total_users FROM users WHERE userRole = 1 ");
 $row = mysqli_fetch_array($total_users_sql);
 $total_user_stat = $row['total_users'];
 
