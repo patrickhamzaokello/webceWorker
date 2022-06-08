@@ -352,11 +352,11 @@ main .mainpanel .elements .activities {
 }
 
 main .mainpanel .elements .activities .childrencontainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(320px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-gap: 1rem;
 }
 
 main .mainpanel .elements .activities .childrencontainer .product-card {

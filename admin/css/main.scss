@@ -314,9 +314,9 @@ main {
         padding: 1em;
 
         .childrencontainer {
-          display: flex;
-          flex-wrap: wrap;
-          // place-content: center;
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+          grid-gap: 1rem;
           .product-card {
             background: #fff;
             padding: 1.5em;
