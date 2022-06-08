@@ -76,9 +76,14 @@ require "queries/classes/Cases.php";
       </div>
     </div>
     <div class="mainpanel">
-      <div class="sectionheading">
-        <h3 class="sectionlable">Statistics</h3>
-        <h6 class="sectionlable">All Major statistics</h6>
+    
+      <div class="elements">
+
+        <div class="activities">
+
+        <div class="sectionheading">
+        <h3 class="sectionlable">Dashboard</h3>
+        <h6 class="sectionlable">Summary</h6>
       </div>
       <div class="statistics">
         <div class="card" style="background:#1845b8">
@@ -122,11 +127,6 @@ require "queries/classes/Cases.php";
 
         </div>
       </div>
-
-
-      <div class="elements">
-
-        <div class="activities">
 
           <div class="sectionheading">
             <h3 class="sectionlable">Cases</h3>
