@@ -58,14 +58,14 @@ require "queries/classes/Cases.php";
     <div class="menu-bar">
       <div class="menu">
 
-        <li class="search-box">
+        <!-- <li class="search-box">
           <i class='bx bx-search icon'></i>
           <input type="text" placeholder="Search...">
-        </li>
+        </li> -->
 
         <ul class="menu-links">
-          <li class="nav-link">
-            <a href="#">
+          <li class="nav-link active">
+            <a href="index">
               <i class='bx bx-home-alt icon'></i>
               <span class="text nav-text">Dashboard</span>
             </a>

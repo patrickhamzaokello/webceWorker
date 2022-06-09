@@ -1,13 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-* {
-  margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-  caret-color: rgba(0, 0, 0, 0);
-}
-
 body {
   height: 100vh;
 }
@@ -564,10 +555,6 @@ body.dark .home .text {
   cursor: pointer;
 }
 
-.mainpanel .sectionheading {
-  font-family: "Montserrat", sans-serif;
-}
-
 .mainpanel .sectionheading h3 {
   font-size: 18px;
   color: #000;
@@ -589,7 +576,6 @@ body.dark .home .text {
 
 .mainpanel .small_sectionheading {
   padding: 0 1em;
-  font-family: "Montserrat", sans-serif;
   margin-top: 2em;
 }
 
@@ -701,7 +687,6 @@ body.dark .home .text {
 }
 
 .mainpanel .elements .activities .childrencontainer .product-card .imagecontainer .casetitle {
-  color: #1845b8;
   font-size: 14px;
 }
 
@@ -716,12 +701,10 @@ body.dark .home .text {
 .mainpanel .elements .activities .childrencontainer .product-card .casedescription .categoryid {
   margin-right: 1em;
   color: black;
-  font-weight: bold;
 }
 
 .mainpanel .elements .activities .childrencontainer .product-card .casedescription .case_location {
   color: #009688;
-  font-weight: bold;
 }
 
 .mainpanel .elements .activities .childrencontainer .product-card .casedescription h1 {
@@ -738,7 +721,7 @@ body.dark .home .text {
 
 .mainpanel .elements .activities .childrencontainer .product-card .casedescription p {
   font-size: 15px;
-  color: #000000;
+  color: #707087;
   text-overflow: ellipsis;
   margin-top: 0.5em;
   display: -webkit-box;
@@ -1227,7 +1210,7 @@ body.dark .home .text {
 }
 
 .active {
-  border: 1px solid #0eb62a;
+  border: 1px solid #707070;
   border-radius: 5px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
