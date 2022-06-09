@@ -39,7 +39,7 @@ require "queries/classes/Cases.php";
 </head>
 
 <body>
-  <nav class="sidebar">
+  <nav class="sidebar close">
     <header>
       <div class="image-text">
         <span class="image">
@@ -47,8 +47,8 @@ require "queries/classes/Cases.php";
         </span>
 
         <div class="text logo-text">
-          <span class="name">Famlink</span>
-          <span class="profession">CEWOCHR ADMIN</span>
+          <span class="name">Codinglab</span>
+          <span class="profession">Web developer</span>
         </div>
       </div>
 
@@ -111,7 +111,7 @@ require "queries/classes/Cases.php";
 
       <div class="bottom-content">
         <li class="">
-          <a href="logout.php">
+          <a href="#">
             <i class='bx bx-log-out icon'></i>
             <span class="text nav-text">Logout</span>
           </a>
@@ -244,6 +244,18 @@ require "queries/classes/Cases.php";
 
       </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
   </section>
 
