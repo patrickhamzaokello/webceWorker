@@ -43,7 +43,7 @@ require "queries/classes/Cases.php";
     <header>
       <div class="image-text">
         <span class="image">
-          <!--<img src="logo.png" alt="">-->
+          <img src="pages/assets/famlink.png" alt="">
         </span>
 
         <div class="text logo-text">
@@ -74,14 +74,14 @@ require "queries/classes/Cases.php";
           <li class="nav-link">
             <a href="#">
               <i class='bx bx-bar-chart-alt-2 icon'></i>
-              <span class="text nav-text">Revenue</span>
+              <span class="text nav-text">Reports</span>
             </a>
           </li>
 
           <li class="nav-link">
-            <a href="#">
+            <a href="pages/appointments">
               <i class='bx bx-bell icon'></i>
-              <span class="text nav-text">Notifications</span>
+              <span class="text nav-text">Appointments</span>
             </a>
           </li>
 

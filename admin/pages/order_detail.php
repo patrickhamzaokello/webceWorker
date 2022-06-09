@@ -42,7 +42,7 @@ require("../queries/classes/Cases.php");
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="logo.png" alt="">
+                    <img src="assets/famlink.png" alt="">
                 </span>
 
                 <div class="text logo-text">
