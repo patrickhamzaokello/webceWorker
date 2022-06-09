@@ -1,7 +1,7 @@
 RewriteEngine On    # Turn on the rewriting engine
 RewriteRule ^login$ login.php [NC,L]
 RewriteRule ^index$ index.php [NC,L]
-RewriteRule ^pages/allorders$ pages/allorders.php [NC,L]
+RewriteRule ^pages/appointments$ pages/appointments.php [NC,L]
 RewriteRule ^pages/banners$ pages/banners.php [NC,L]
 RewriteRule ^pages/categories$ pages/categories.php [NC,L]
 RewriteRule ^pages/menuitems$ pages/menuitems.php [NC,L]

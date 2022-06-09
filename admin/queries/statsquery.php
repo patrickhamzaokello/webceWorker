@@ -29,4 +29,8 @@ $total_approved_appointment_sql = mysqli_query($con, "SELECT COUNT(*) as total_a
 $row = mysqli_fetch_array($total_approved_appointment_sql);
 $total_approved_appointment_stat = $row['total_approved_appointment'];
 
+//get number of $total_canceled_appointment_sql
+$total_canceled_appointment_sql = mysqli_query($con, "SELECT COUNT(*) as total_cancel_appointment FROM appointments WHERE status = 2");
+$row = mysqli_fetch_array($total_canceled_appointment_sql);
+$total_cancel_appointment_stat = $row['total_cancel_appointment'];
 

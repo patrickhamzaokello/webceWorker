@@ -7,7 +7,7 @@ $con = $db->getConnString();
 require('session.php');
 
 require('queries/statsquery.php');
-require('queries/order_new_query.php');
+require('queries/case_new_query.php');
 require "queries/classes/User.php";
 require "queries/classes/Cases.php";
 
@@ -52,16 +52,17 @@ require "queries/classes/Cases.php";
   </header>
   <main>
     <div class="sidepanel">
+    
+      <div class="sidemenu">
       <div class="about">
         <div class="title">
           <h1>Famlink</h1>
         </div>
       </div>
-      <div class="sidemenu">
         <a href="index" class="menu active">
           <p>Dashboard</p>
         </a>
-        <a href="pages/allorders" class="menu">
+        <a href="pages/appointments" class="menu">
           <p>Appointments</p>
         </a>
         <a href="pages/menuitems" class="menu">

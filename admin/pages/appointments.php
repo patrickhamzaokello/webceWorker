@@ -1,18 +1,3 @@
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-  <link rel="icon" type="image/x-icon" href="assets/z_favicon.png">
-  <link rel="stylesheet" href="../css/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-  <title>Orders</title>
-</head>
-
 <?php
 require("../config.php");
 $db = new Database();
@@ -27,6 +12,21 @@ require("../queries/classes/Cases.php");
 
 
 ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+  <link rel="icon" type="image/x-icon" href="assets/z_favicon.png">
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <title>Orders</title>
+</head>
+
+
 
 <body>
   <header>
@@ -87,17 +87,17 @@ require("../queries/classes/Cases.php");
 
 
         <a href="#">
-          <div class="filterorder filter_active">New Orders <span class="noti circle"><?= $totalActiveOrders_stat?></span></div>
+          <div class="filterorder filter_active">New Appointments <span class="noti circle"><?= $total_new_appointment_stat?></span></div>
         </a>
 
 
         <a href="preparing_order.php">
-          <div class="filterorder">Preparing <span class="noti circlenotactive"><?= $orderPreparingstat ?></span></div>
+          <div class="filterorder">Approved <span class="noti circlenotactive"><?= $total_approved_appointment_stat ?></span></div>
         </a>
 
 
         <a href="delivered_order.php">
-          <div class="filterorder">Delivered <span class="noti circlenotactive"><?= $order_deliver_stat?></span></div>
+          <div class="filterorder">Canceled <span class="noti circlenotactive"><?= $total_cancel_appointment_stat?></span></div>
         </a>
 
 
