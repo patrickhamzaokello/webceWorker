@@ -58,10 +58,10 @@ require "queries/classes/Cases.php";
     <div class="menu-bar">
       <div class="menu">
 
-        <!-- <li class="search-box">
+        <li class="search-box" style="display: none;">
           <i class='bx bx-search icon'></i>
           <input type="text" placeholder="Search...">
-        </li> -->
+        </li>
 
         <ul class="menu-links">
           <li class="nav-link active">

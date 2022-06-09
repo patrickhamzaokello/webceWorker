@@ -1211,7 +1211,7 @@ body.dark .home .text {
 
 .active {
   border: 1px solid #707070;
-  border-radius: 5px;
+  border-radius: 6px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   color: white !important;
