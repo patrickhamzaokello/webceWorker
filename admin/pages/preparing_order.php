@@ -19,7 +19,7 @@ $con = $db->getConnString();
 
 require('../session.php');
 require('../queries/statsquery.php');
-require('../queries/order_preparing_query.php');
+require('../queries/appointment_prep_query.php');
 require("../queries/classes/Cases.php");
 
 
@@ -136,7 +136,7 @@ require("../queries/classes/Cases.php");
                   <input type="hidden" name="artistid" value="<?= $order->getOrder_id() ?>">
 
                   <div class="product-card__actions">
-                    <a href="order_detail.php?id=<?= $order->getOrder_id() ?>" class="btn btn-primary my-2  sponsorbutton">View Details</a>
+                    <a href="case_detail.php?id=<?= $order->getOrder_id() ?>" class="btn btn-primary my-2  sponsorbutton">View Details</a>
                   </div>
                 </div>
 

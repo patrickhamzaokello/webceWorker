@@ -5,10 +5,11 @@ $con = $db->getConnString();
 
 require('../session.php');
 require('../queries/statsquery.php');
-require('../queries/order_new_query.php');
-require('../queries/order_preparing_query.php');
-require('../queries/order_delivered_query.php');
-require("../queries/classes/Cases.php");
+require('../queries/appointment_query.php');
+require('../queries/appointment_new_query.php');
+require('../queries/appointment_prep_query.php');
+require('../queries/appointment_delivered_query.php');
+require("../queries/classes/Appointment.php");
 
 ?>
 
@@ -33,7 +34,7 @@ require("../queries/classes/Cases.php");
   <!----===== Boxicons CSS ===== -->
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
-  <title>Order Detail</title>
+  <title>Appointments</title>
 
 </head>
 
@@ -71,9 +72,9 @@ require("../queries/classes/Cases.php");
           </li>
 
           <li class="nav-link">
-            <a href="#">
+            <a href="cases">
               <i class='bx bx-bar-chart-alt-2 icon'></i>
-              <span class="text nav-text">Reports</span>
+              <span class="text nav-text">Cases</span>
             </a>
           </li>
 
@@ -168,58 +169,53 @@ require("../queries/classes/Cases.php");
 
 
 
-          <div class="elements">
+          <div class="appointmentdiv">
 
-            <div class="activities">
 
-              <?php if ($orderNew) : ?>
+            <?php if ($appointmentNew) : ?>
 
-                <div class="childrencontainer">
+              <div class="childrencontainer">
 
+
+                <?php
+                foreach ($appointmentNew as $row) :
+                ?>
 
                   <?php
-                  foreach ($orderNew as $row) :
+                  $order = new Appointment($con, $row);
                   ?>
 
-                    <?php
-                    $order = new Referral($con, $row);
-                    ?>
+                  <div class="product-card">
+                    <h4 class="orderID" style="display: none;"><?= $order->getId() ?></h4>
 
-                    <div class="product-card">
-                      <h4 class="orderID" style="display: none;"><?= $order->getOrder_id() ?></h4>
+                    <p class="artistlable">Order No <span class="ordervalue"> ZD416F<?= $order->getId()  ?> </span></p>
+                    <p class="artistlable">Date Added <span class="ordervalue"><?= $order->getDateCreated()  ?> </span></p>
+                    <div class="addresslayout">
 
-                      <p class="artistlable">Order No <span class="ordervalue"> ZD416F<?= $order->getOrder_id()  ?> </span></p>
-                      <p class="artistlable">Date Added <span class="ordervalue"><?= $order->getOrder_date()  ?> </span></p>
-                      <div class="addresslayout">
-                        <p class="artistlable">Address <span class="ordervalue"><?= $order->getOrder_address()[0]  ?> </span></p>
-                        <p class="artistlable">Contact <span class="ordervalue"><?= $order->getOrder_address()[1]  ?> </span></p>
-
-                      </div>
-                      <p class="artistlable">Tag <span class="ordervalue"><?= $order->getProcessed_by()  ?> </span> <span class="artistlable">Status <span class="ordervalue smalltag"><?= $order->getOrder_status()  ?></span> </span></p>
-                      <p class="artistlable">Total Amount (UGX) <span class="ordervalue"><?= number_format($order->getTotal_amount())  ?> </span></p>
-
-
-                      <input type="hidden" name="artistid" value="<?= $order->getOrder_id() ?>">
-
-                      <div class="product-card__actions">
-                        <a href="order_detail.php?id=<?= $order->getOrder_id() ?>" class="btn btn-primary my-2  sponsorbutton">View Details</a>
-                      </div>
                     </div>
-
-                  <?php endforeach ?>
-
-                </div>
+                    <p class="artistlable">Tag <span class="ordervalue"><?= $order->getUserid()  ?> </span> <span class="artistlable">Status <span class="ordervalue smalltag"><?= $order->getStatus()  ?></span> </span></p>
 
 
-              <?php else :  ?>
-                No Orders Left
-              <?php endif ?>
+                    <input type="hidden" name="artistid" value="<?= $order->getId() ?>">
+
+                    <div class="product-card__actions">
+                      <a href="case_detail.php?id=<?= $order->getId() ?>" class="btn btn-primary my-2  sponsorbutton">View Details</a>
+                    </div>
+                  </div>
+
+                <?php endforeach ?>
+
+              </div>
 
 
+            <?php else :  ?>
+              No Appointments Left
+            <?php endif ?>
 
-            </div>
+
 
           </div>
+
 
         </div>
 

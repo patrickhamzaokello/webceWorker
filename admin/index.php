@@ -72,9 +72,9 @@ require "queries/classes/Cases.php";
           </li>
 
           <li class="nav-link">
-            <a href="#">
+            <a href="pages/cases.php">
               <i class='bx bx-bar-chart-alt-2 icon'></i>
-              <span class="text nav-text">Reports</span>
+              <span class="text nav-text">Cases</span>
             </a>
           </li>
 
@@ -225,7 +225,7 @@ require "queries/classes/Cases.php";
                   <input type="hidden" name="artistid" value="<?= $order->getId() ?>">
 
                   <div class="product-card__actions">
-                    <a href="pages/order_detail.php?id=<?= $order->getId() ?>" class="btn btn-primary my-2  sponsorbutton">View Details</a>
+                    <a href="pages/case_detail.php?id=<?= $order->getId() ?>" class="btn btn-primary my-2  sponsorbutton">View Details</a>
                   </div>
                 </div>
 

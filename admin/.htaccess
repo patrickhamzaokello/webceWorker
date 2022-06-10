@@ -2,7 +2,7 @@ RewriteEngine On    # Turn on the rewriting engine
 RewriteRule ^login$ login.php [NC,L]
 RewriteRule ^index$ index.php [NC,L]
 RewriteRule ^pages/appointments$ pages/appointments.php [NC,L]
-RewriteRule ^pages/banners$ pages/banners.php [NC,L]
+RewriteRule ^pages/cases$ pages/cases.php [NC,L]
 RewriteRule ^pages/categories$ pages/categories.php [NC,L]
 RewriteRule ^pages/menuitems$ pages/menuitems.php [NC,L]
 RewriteRule ^pages/order_detail/([0-9_-]*)$  pages/order_detail.php?id=$1 [NC,L]
