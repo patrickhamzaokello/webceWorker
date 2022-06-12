@@ -73,7 +73,7 @@ require("../queries/classes/Cases.php");
           <li class="nav-link active">
             <a href="#">
               <i class='bx bx-bar-chart-alt-2 icon'></i>
-              <span class="text nav-text">Reports</span>
+              <span class="text nav-text">Cases</span>
             </a>
           </li>
 
@@ -84,7 +84,7 @@ require("../queries/classes/Cases.php");
             </a>
           </li>
 
-          <li class="nav-link">
+          <!-- <li class="nav-link">
             <a href="#">
               <i class='bx bx-pie-chart-alt icon'></i>
               <span class="text nav-text">Analytics</span>
@@ -103,7 +103,7 @@ require("../queries/classes/Cases.php");
               <i class='bx bx-wallet icon'></i>
               <span class="text nav-text">Wallets</span>
             </a>
-          </li>
+          </li> -->
 
         </ul>
       </div>
@@ -240,12 +240,12 @@ require("../queries/classes/Cases.php");
                                     </div>
 
                                     <div class="approveorderform">
-                                        <h1>Approve Order</h1>
-                                        <p>All approved orders are accessed through the Order Page </p>
+                                        <h1>Approve</h1>
+                                        <p>All approved Cases are accessed through the Reported Case Page </p>
                                     </div>
 
                                     <div class="deleteorder" style="display: none;">
-                                        <h1>Delete Order</h1>
+                                        <h1>Delete Case</h1>
                                         <p>This action can not be reversed when done! </p>
                                     </div>
 

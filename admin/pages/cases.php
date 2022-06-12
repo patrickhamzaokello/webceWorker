@@ -86,7 +86,7 @@ require("../queries/classes/Cases.php");
                     </a>
                 </li>
 
-                <li class="nav-link">
+                <!-- <li class="nav-link">
                     <a href="#">
                         <i class='bx bx-pie-chart-alt icon'></i>
                         <span class="text nav-text">Analytics</span>
@@ -105,7 +105,7 @@ require("../queries/classes/Cases.php");
                         <i class='bx bx-wallet icon'></i>
                         <span class="text nav-text">Wallets</span>
                     </a>
-                </li>
+                </li> -->
 
             </ul>
         </div>
@@ -208,7 +208,8 @@ require("../queries/classes/Cases.php");
                                     <input type="hidden" name="artistid" value="<?= $order->getId() ?>">
 
                                     <div class="product-card__actions">
-                                        <a href="pages/case_detail.php?id=<?= $order->getId() ?>" class="btn btn-primary my-2  sponsorbutton">View Details</a>
+                                        <a href="
+                                        case_detail.php?id=<?= $order->getId() ?>" class="btn btn-primary my-2  sponsorbutton">View Details</a>
                                     </div>
                                 </div>
 
