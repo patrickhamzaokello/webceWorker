@@ -5,11 +5,12 @@ $con = $db->getConnString();
 
 require('../session.php');
 require('../queries/statsquery.php');
-require('../queries/appointment_query.php');
 require('../queries/appointment_new_query.php');
 require('../queries/appointment_prep_query.php');
 require('../queries/appointment_delivered_query.php');
-require("../queries/classes/Appointment.php");
+require('../queries/case_new_query.php');
+require "../queries/classes/User.php";
+require("../queries/classes/Cases.php");
 
 ?>
 
@@ -172,45 +173,54 @@ require("../queries/classes/Appointment.php");
                 <div class="case_div">
 
 
-                        <?php if ($appointmentNew) : ?>
+                    <?php if ($caseNew) : ?>
 
-                            <div class="childrencontainer">
+                        <div class="childrencontainer">
+
+
+                            <?php
+                            foreach ($caseNew as $row) :
+                                ?>
 
 
                                 <?php
-                                foreach ($appointmentNew as $row) :
-                                    ?>
+                                $order = new Cases($con, $row);
+                                ?>
 
-                                    <?php
-                                    $order = new Appointment($con, $row);
-                                    ?>
+                                <div class="product-card">
 
-                                    <div class="product-card">
-                                        <h4 class="orderID" style="display: none;"><?= $order->getId() ?></h4>
-
-                                        <p class="artistlable">Order No <span class="ordervalue"> ZD416F<?= $order->getId()  ?> </span></p>
-                                        <p class="artistlable">Date Added <span class="ordervalue"><?= $order->getDateCreated()  ?> </span></p>
-                                        <div class="addresslayout">
-
-                                        </div>
-                                        <p class="artistlable">Tag <span class="ordervalue"><?= $order->getUserid()  ?> </span> <span class="artistlable">Status <span class="ordervalue smalltag"><?= $order->getStatus()  ?></span> </span></p>
-
-
-                                        <input type="hidden" name="artistid" value="<?= $order->getId() ?>">
-
-                                        <div class="product-card__actions">
-                                            <a href="case_detail.php?id=<?= $order->getId() ?>" class="btn btn-primary my-2  sponsorbutton">View Details</a>
+                                    <div class="imagecontainer">
+                                        <img src="<?= $order->getPicture() ?>" alt="">
+                                        <div class="imgtext">
+                                            <h5 class="casetitle"><?= $order->getReportedbyUser() ?></h5>
+                                            <p class="case_info"><?= $order->getDatecreated() ?> </p>
                                         </div>
                                     </div>
 
-                                <?php endforeach ?>
+                                    <div class="casedescription">
+                                        <h1><?= $order->getTitle() ?></h1>
+                                        <p><?= $order->getDescription() ?> </p>
+                                        <p><span class="categoryid">Tag: <?= $order->getCategoryId() ?></span> <span class="case_location">Address: <?= $order->getLocation() ?> </span> </p>
 
-                            </div>
+                                    </div>
 
 
-                        <?php else :  ?>
-                            No Appointments Left
-                        <?php endif ?>
+                                    <input type="hidden" name="artistid" value="<?= $order->getId() ?>">
+
+                                    <div class="product-card__actions">
+                                        <a href="pages/case_detail.php?id=<?= $order->getId() ?>" class="btn btn-primary my-2  sponsorbutton">View Details</a>
+                                    </div>
+                                </div>
+
+                            <?php endforeach ?>
+
+                        </div>
+
+
+                    <?php else :  ?>
+                        No New Cases
+                    <?php endif ?>
+
 
 
 

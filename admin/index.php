@@ -235,7 +235,7 @@ require "queries/classes/Cases.php";
 
 
           <?php else :  ?>
-            No Orders Left
+            No New Cases
           <?php endif ?>
 
 
