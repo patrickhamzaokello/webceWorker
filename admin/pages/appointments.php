@@ -155,12 +155,12 @@ require("../queries/classes/Appointment.php");
             </a>
 
 
-            <a href="preparing_order.php">
+            <a href="#">
               <div class="filterorder">Approved <span class="noti circlenotactive"><?= $total_approved_appointment_stat ?></span></div>
             </a>
 
 
-            <a href="delivered_order.php">
+            <a href="#">
               <div class="filterorder">Canceled <span class="noti circlenotactive"><?= $total_cancel_appointment_stat ?></span></div>
             </a>
 
@@ -187,20 +187,30 @@ require("../queries/classes/Appointment.php");
 
                   <div class="product-card">
                     <h4 class="orderID" style="display: none;"><?= $order->getId() ?></h4>
+                    <h5><?= $order->getName() ?></h5>
+                    <p><?= $order->getEmail() ?></p>
+                    <p><?= $order->getPhone() ?></p>
+                    <p style="color: #666; margin-top: 1em;">Appointment ID</p>
 
-                    <p class="artistlable">Order No <span class="ordervalue"> ZD416F<?= $order->getId()  ?> </span></p>
-                    <p class="artistlable">Date Added <span class="ordervalue"><?= $order->getDateCreated()  ?> </span></p>
-                    <div class="addresslayout">
+                    <h5>FAM_0x<?= $order->getId() ?></h5>
+                  
+                    <p style="color: #666; margin-top: 1em;">Purpose</p>
+                    <p><?= $order->getPurpose() ?></p>
+                    <p style="color: #666; margin-top: 1em;">Date & Time</p>
+                    <p> <?= $order->getAppointmentDate() ?></p>
+                    <!-- <p><?= $order->getStatus() ?></p> -->
 
-                    </div>
-                    <p class="artistlable">Tag <span class="ordervalue"><?= $order->getUserid()  ?> </span> <span class="artistlable">Status <span class="ordervalue smalltag"><?= $order->getStatus()  ?></span> </span></p>
+
+
+
+
 
 
                     <input type="hidden" name="artistid" value="<?= $order->getId() ?>">
 
-                    <div class="product-card__actions">
-                      <a href="case_detail.php?id=<?= $order->getId() ?>" class="btn btn-primary my-2  sponsorbutton">View Details</a>
-                    </div>
+                    <!-- <div class="product-card__actions">
+                      <a href="#" class="btn btn-primary my-2  sponsorbutton">View Details</a>
+                    </div> -->
                   </div>
 
                 <?php endforeach ?>

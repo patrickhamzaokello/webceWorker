@@ -96,7 +96,17 @@ class Appointment
      */
     public function getPhone()
     {
-        return $this->phone;
+        $format_phone = '';
+
+        if( $this->phone[0] == 0){
+            $format_phone = $this->phone;
+        } elseif ($this->phone[0] != 0) {
+            $format_phone = "0".$this->phone;
+        }
+
+        return $format_phone;
+
+
     }
 
     /**
@@ -112,7 +122,12 @@ class Appointment
      */
     public function getAppointmentDate()
     {
-        return $this->appointment_date;
+
+        $phpdate = strtotime($this->appointment_date);
+        $mysqldate = date('d M Y h:i A', $phpdate);
+        // $mysqldate = date( 'd/M/Y H:i:s', $phpdate );
+
+        return $mysqldate;
     }
 
     /**
@@ -120,6 +135,20 @@ class Appointment
      */
     public function getStatus()
     {
+        $case_status = '';
+
+        if( $this->status == 0){
+            $case_status = "New";
+        } else if($this->order_status == 1) {
+            $case_status = "Approved";
+        }else if($this->order_status == 2) {
+            $case_status = "Complete";
+        }
+
+        return $case_status;
+    }
+
+    public function getStatusId(){
         return $this->status;
     }
 

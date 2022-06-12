@@ -156,12 +156,12 @@ require("../queries/classes/Cases.php");
                     </a>
 
 
-                    <a href="preparing_order.php">
+                    <a href="#">
                         <div class="filterorder">Approved <span class="noti circlenotactive"><?= $total_approved_appointment_stat ?></span></div>
                     </a>
 
 
-                    <a href="delivered_order.php">
+                    <a href="#">
                         <div class="filterorder">Canceled <span class="noti circlenotactive"><?= $total_cancel_appointment_stat ?></span></div>
                     </a>
 
