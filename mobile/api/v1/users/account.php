@@ -33,7 +33,7 @@ if (isset($_GET['apicall'])) {
 
                                 //checking if the user is already exist with this username or email
                                 //as the email and username should be unique for every user 
-                                $stmt = $conn->prepare("SELECT customer_id FROM tblcustomer WHERE customer_username = ? OR customer_email = ?");
+                                $stmt = $conn->prepare("SELECT customer_id FROM users WHERE customer_username = ? OR customer_email = ?");
                                 $stmt->bind_param("ss", $username, $email);
                                 $stmt->execute();
                                 $stmt->store_result();
@@ -47,14 +47,14 @@ if (isset($_GET['apicall'])) {
                                 } else {
 
                                         //if user is new creating an insert query 
-                                        $stmt = $conn->prepare("INSERT INTO tblcustomer (customer_full_name, customer_username, customer_email, customer_phone_number, customer_address, profile_image, customer_password) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                                        $stmt = $conn->prepare("INSERT INTO users (customer_full_name, customer_username, customer_email, customer_phone_number, customer_address, profile_image, customer_password) VALUES (?, ?, ?, ?, ?, ?, ?)");
                                         $stmt->bind_param("sssssss", $full_name, $username, $email, $user_phone, $location_address, $profileimage, $password);
 
                                         //if the user is successfully added to the database 
                                         if ($stmt->execute()) {
 
                                                 //fetching the user back 
-                                                $stmt = $conn->prepare("SELECT customer_id, customer_full_name, customer_username, customer_email, customer_phone_number, customer_address, profile_image FROM tblcustomer WHERE customer_username = ? OR customer_email = ?");
+                                                $stmt = $conn->prepare("SELECT customer_id, customer_full_name, customer_username, customer_email, customer_phone_number, customer_address, profile_image FROM users WHERE customer_username = ? OR customer_email = ?");
                                                 $stmt->bind_param("ss", $username, $email);
                                                 $stmt->execute();
                                                 $stmt->bind_result($customer_id, $customer_full_name, $customer_username, $customer_email, $customer_phone_number, $customer_address, $profile_image);
@@ -101,10 +101,10 @@ if (isset($_GET['apicall'])) {
                                 $check_email = Is_email($username);
                                 if ($check_email) {
                                         // email & password combination 
-                                        $stmt = $conn->prepare("SELECT customer_id, customer_full_name, customer_username, customer_email, customer_phone_number, customer_address, profile_image FROM tblcustomer WHERE customer_email = ? AND customer_password = ?");
+                                        $stmt = $conn->prepare("SELECT customer_id, customer_full_name, customer_username, customer_email, customer_phone_number, customer_address, profile_image FROM users WHERE customer_email = ? AND customer_password = ?");
                                 } else {
                                         // username & password combination
-                                        $stmt = $conn->prepare("SELECT customer_id, customer_full_name, customer_username, customer_email, customer_phone_number, customer_address, profile_image FROM tblcustomer WHERE customer_username = ? AND customer_password = ?");
+                                        $stmt = $conn->prepare("SELECT customer_id, customer_full_name, customer_username, customer_email, customer_phone_number, customer_address, profile_image FROM users WHERE customer_username = ? AND customer_password = ?");
                                 }
 
                                 //creating the query 
