@@ -195,7 +195,6 @@ require("../queries/classes/Cases.php");
 
 
 
-                                        <img src="<?= $order->getPicture() ?>" alt="">
 
                                         <div class="cartItemdetail">
                                             <div class="menutitle">Boy looking for mother and Father

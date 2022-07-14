@@ -86,26 +86,26 @@ require("../queries/classes/Cases.php");
                     </a>
                 </li>
 
-                <!-- <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-pie-chart-alt icon'></i>
-                        <span class="text nav-text">Analytics</span>
-                    </a>
-                </li>
+<!--                 <li class="nav-link">-->
+<!--                    <a href="#">-->
+<!--                        <i class='bx bx-pie-chart-alt icon'></i>-->
+<!--                        <span class="text nav-text">Message</span>-->
+<!--                    </a>-->
+<!--                </li>-->
+                <!--
+                                <li class="nav-link">
+                                    <a href="#">
+                                        <i class='bx bx-heart icon'></i>
+                                        <span class="text nav-text">Likes</span>
+                                    </a>
+                                </li>
 
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-heart icon'></i>
-                        <span class="text nav-text">Likes</span>
-                    </a>
-                </li>
-
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx bx-wallet icon'></i>
-                        <span class="text nav-text">Wallets</span>
-                    </a>
-                </li> -->
+                                <li class="nav-link">
+                                    <a href="#">
+                                        <i class='bx bx-wallet icon'></i>
+                                        <span class="text nav-text">Wallets</span>
+                                    </a>
+                                </li> -->
 
             </ul>
         </div>
@@ -190,7 +190,6 @@ require("../queries/classes/Cases.php");
                                 <div class="product-card">
 
                                     <div class="imagecontainer">
-                                        <img src="<?= $order->getPicture() ?>" alt="">
                                         <div class="imgtext">
                                             <h5 class="casetitle"><?= $order->getReportedbyUser() ?></h5>
                                             <p class="case_info"><?= $order->getDatecreated() ?> </p>

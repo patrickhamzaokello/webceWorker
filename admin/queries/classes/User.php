@@ -22,7 +22,7 @@ class User
         $this->con = $con;
         $this->id = $id;
 
-        $query = mysqli_query($this->con, "SELECT `customer_id`, `customer_full_name`, `customer_username`, `customer_email`, `customer_phone_number`, `customer_address`, `profile_image`, `customer_password`, `account_status`, `userRole`, `created` FROM ".$this->TABLE_NAME." WHERE  customer_id = $this->id ");
+        $query = mysqli_query($this->con, "SELECT `user_id`, `full_name`, `username`, `email`, `phone_number`, `address`, `profile_image`, `password`, `account_status`, `userRole`, `created` FROM ".$this->TABLE_NAME." WHERE  user_id = $this->id ");
         $user_fetched = mysqli_fetch_array($query);
 
         if (mysqli_num_rows($query) < 1) {
@@ -39,14 +39,14 @@ class User
             $this->created = null;
         } else {
 
-            $this->id = $user_fetched['customer_id'];
-            $this->full_name =  $user_fetched['customer_full_name'];
-            $this->username =  $user_fetched['customer_username'];
-            $this->phone_number =  $user_fetched['customer_phone_number'];
-            $this->email =  $user_fetched['customer_email'];
-            $this->address =  $user_fetched['customer_address'];
+            $this->id = $user_fetched['user_id'];
+            $this->full_name =  $user_fetched['full_name'];
+            $this->username =  $user_fetched['username'];
+            $this->phone_number =  $user_fetched['phone_number'];
+            $this->email =  $user_fetched['email'];
+            $this->address =  $user_fetched['address'];
             $this->profile_image =  $user_fetched['profile_image'];
-            $this->customer_password =  $user_fetched['customer_password'];
+            $this->customer_password =  $user_fetched['password'];
             $this->account_status =  $user_fetched['account_status'];
             $this->userRole =  $user_fetched['userRole'];
             $this->created =  $user_fetched['created'];

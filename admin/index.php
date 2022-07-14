@@ -207,7 +207,6 @@ require "queries/classes/Cases.php";
                 <div class="product-card">
 
                   <div class="imagecontainer">
-                    <img src="<?= $order->getPicture() ?>" alt="">
                     <div class="imgtext">
                       <h5 class="casetitle"><?= $order->getReportedbyUser() ?></h5>
                       <p class="case_info"><?= $order->getDatecreated() ?> </p>
