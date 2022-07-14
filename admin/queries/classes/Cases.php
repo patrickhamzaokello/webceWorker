@@ -155,11 +155,11 @@ class Cases
     {
         $case_status = '';
 
-        if( $this->status == 0){
+        if( $this->status == 1){
             $case_status = "New";
-        } else if($this->order_status == 1) {
+        } else if($this->order_status == 2) {
             $case_status = "Approved";
-        }else if($this->order_status == 2) {
+        }else if($this->order_status == 3) {
             $case_status = "Complete";
         }
 

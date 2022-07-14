@@ -13,8 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $orderstatus = mysqli_real_escape_string($con, $_POST['orderstatus']);
     $order_action = mysqli_real_escape_string($con, $_POST['order_action']);
 
-
-
     if (empty($_POST['childname'])) {
         $errors['childname'] = 'Referral ID is Required';
     }
@@ -32,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if(intval($order_action)  == 1){
 
-            $delete_order_sql = "DELETE FROM `tblorder` WHERE  `order_id` = $childname";
+            $delete_order_sql = "DELETE FROM `cases` WHERE  `id` = '$childname'";
 
             mysqli_query($con,$delete_order_sql);
     
@@ -48,14 +46,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         } elseif (intval($order_action)  == 2){
 
-            if(intval($orderstatus) == 1){
-                $update_order_status = "UPDATE `tblorder` SET `order_status`= 2  WHERE `order_id` = $childname";
+            if(intval($orderstatus) == 0){
+                $update_order_status = "UPDATE `cases` SET `status`= 1  WHERE `id` = $childname";
+    
+            } elseif (intval($orderstatus) == 1){
+                $update_order_status = "UPDATE `cases` SET `status`= 2  WHERE `id` = $childname";
     
             } elseif (intval($orderstatus) == 2){
-                $update_order_status = "UPDATE `tblorder` SET `order_status`= 3  WHERE `order_id` = $childname";
-    
-            } elseif (intval($orderstatus) == 3){
-                $update_order_status = "UPDATE `tblorder` SET `order_status`= 3  WHERE `order_id` = $childname";
+                $update_order_status = "UPDATE `cases` SET `status`= 3  WHERE `id` = $childname";
             }
     
             mysqli_query($con,$update_order_status);

@@ -26,7 +26,7 @@ class Appointment
         $this->id = $id;
 
 
-        $query = mysqli_query($this->con, " SELECT `id`, `userid`, `name`, `email`, `phone`, `purpose`, `appointment_date`, `status`, `date-created`, `date-updated` FROM ".$this->TABLE_NAME." WHERE id = $this->id ");
+        $query = mysqli_query($this->con, " SELECT `id`, `userid`, `purpose`, `appointment_date`, `status`, `date-created`, `date-updated` FROM ".$this->TABLE_NAME." WHERE id = $this->id ");
         $appointment_fetched = mysqli_fetch_array($query);
 
 
@@ -46,9 +46,6 @@ class Appointment
 
             $this->id = $appointment_fetched['id'];
             $this->userid = $appointment_fetched['userid'];
-            $this->name = $appointment_fetched['name'];
-            $this->email = $appointment_fetched['email'];
-            $this->phone = $appointment_fetched['phone'];
             $this->purpose = $appointment_fetched['purpose'];
             $this->appointment_date = $appointment_fetched['appointment_date'];
             $this->status = $appointment_fetched['status'];
@@ -80,6 +77,9 @@ class Appointment
      */
     public function getName()
     {
+        $user = new User($this->con, $this->userid);
+        $this->name = $user->getFullName();
+
         return $this->name;
     }
 
@@ -88,6 +88,8 @@ class Appointment
      */
     public function getEmail()
     {
+        $user = new User($this->con, $this->userid);
+        $this->email = $user->getEmail();
         return $this->email;
     }
 
@@ -97,7 +99,8 @@ class Appointment
     public function getPhone()
     {
         $format_phone = '';
-
+        $user = new User($this->con, $this->userid);
+        $this->phone = $user->getPhoneNumber();
         if( $this->phone[0] == 0){
             $format_phone = $this->phone;
         } elseif ($this->phone[0] != 0) {
@@ -137,11 +140,11 @@ class Appointment
     {
         $case_status = '';
 
-        if( $this->status == 0){
+        if( $this->status == 1){
             $case_status = "New";
-        } else if($this->order_status == 1) {
+        } else if($this->status == 2) {
             $case_status = "Approved";
-        }else if($this->order_status == 2) {
+        }else if($this->status == 3) {
             $case_status = "Complete";
         }
 

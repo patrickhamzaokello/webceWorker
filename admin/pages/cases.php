@@ -5,9 +5,6 @@ $con = $db->getConnString();
 
 require('../session.php');
 require('../queries/statsquery.php');
-require('../queries/appointment_new_query.php');
-require('../queries/appointment_prep_query.php');
-require('../queries/appointment_delivered_query.php');
 require('../queries/case_new_query.php');
 require "../queries/classes/User.php";
 require("../queries/classes/Cases.php");
@@ -152,17 +149,17 @@ require("../queries/classes/Cases.php");
 
 
                     <a href="#">
-                        <div class="filterorder filter_active">New <span class="noti circle"><?= $total_new_appointment_stat ?></span></div>
+                        <div class="filterorder filter_active">New <span class="noti circle"><?= $total_newCases ?></span></div>
                     </a>
 
 
                     <a href="#">
-                        <div class="filterorder">Approved <span class="noti circlenotactive"><?= $total_approved_appointment_stat ?></span></div>
+                        <div class="filterorder">Approved <span class="noti circlenotactive"><?= $total_approvedCases ?></span></div>
                     </a>
 
 
                     <a href="#">
-                        <div class="filterorder">Canceled <span class="noti circlenotactive"><?= $total_cancel_appointment_stat ?></span></div>
+                        <div class="filterorder">Handled <span class="noti circlenotactive"><?= $total_handledCases ?></span></div>
                     </a>
 
 

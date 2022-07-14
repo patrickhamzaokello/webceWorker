@@ -77,6 +77,7 @@ $(document).ready(function () {
       loaderdiv.style.display = "grid";
     }
 
+
     $.ajax({
       type: "POST",
       url: "processors/process_approve_order.php",
@@ -104,14 +105,13 @@ $(document).ready(function () {
         }, 3000);
 
         document.getElementById("approveform").reset();
-        window.location.href = "allorders.php";
+        window.location.href = "cases.php";
       }
     });
 
     event.preventDefault();
   });
 
-  $("form").su;
 });
 
 function cancelsponsohip() {

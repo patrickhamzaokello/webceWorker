@@ -1,10 +1,10 @@
 <?php
-$caseNew = array();
+$appoint_new = array();
 
-$case_new_sql = mysqli_query($con, "SELECT id FROM  appointments WHERE status = 0 ORDER BY `appointments`.`date-created` DESC ");
+$appoint_new_new_sql = mysqli_query($con, "SELECT id FROM  appointments WHERE status = 1 ORDER BY `appointments`.`date-created` DESC ");
 
-while ($row = mysqli_fetch_array($case_new_sql)) {
+while ($row = mysqli_fetch_array($appoint_new_new_sql)) {
 
-    array_push($caseNew, $row['id']);
+    array_push($appoint_new, $row['id']);
 
 }

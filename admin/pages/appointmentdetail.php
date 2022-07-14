@@ -8,8 +8,10 @@ $orderid = (isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0';
 require('../session.php');
 require('../queries/statsquery.php');
 require("../queries/classes/User.php");
-require("../queries/classes/Cases.php");
-
+require("../queries/classes/Appointment.php");
+require('../queries/appointment_new_query.php');
+require('../queries/appointment_prep_query.php');
+require('../queries/appointment_delivered_query.php');
 
 ?>
 
@@ -70,14 +72,14 @@ require("../queries/classes/Cases.php");
             </a>
           </li>
 
-          <li class="nav-link active">
+          <li class="nav-link ">
             <a href="cases">
               <i class='bx bx-bar-chart-alt-2 icon'></i>
               <span class="text nav-text">Cases</span>
             </a>
           </li>
 
-          <li class="nav-link">
+          <li class="nav-link active">
             <a href="appointments">
               <i class='bx bx-bell icon'></i>
               <span class="text nav-text">Appointments</span>
@@ -140,7 +142,7 @@ require("../queries/classes/Cases.php");
 
 
                     <?php
-                    $order = new Cases($con, $orderid);
+                    $order = new Appointment($con, $orderid);
 
                     if ($order->getId() != null) :
                     ?>
@@ -162,7 +164,7 @@ require("../queries/classes/Cases.php");
 
 
                                         <div class="sectionheading">
-                                            <h3 class="sectionlable">Case Report Details</h3>
+                                            <h3 class="sectionlable">Appointment Details</h3>
 
                                         </div>
 
@@ -170,36 +172,38 @@ require("../queries/classes/Cases.php");
                                         <div class="orderheading">
 
                                             <div class="ordertimediv">
-                                                <h6>Case ID</h6>
-                                                <h5>FLCW-<?= $order->getId() ?></h5>
+                                                <h6>ID</h6>
+                                                <h5><?= $order->getId() ?></h5>
                                             </div>
                                             <div class="ordertimediv">
-                                                <h6>Reported Time</h6>
-                                                <h5><?= $order->getDatecreated() ?></h5>
+                                                <h6>Date & Time</h6>
+                                                <h5><?= $order->getAppointmentDate() ?></h5>
                                             </div>
 
                                             <div class="ordertimediv">
-                                                <h6>Case Status</h6>
+                                                <h6>Status</h6>
                                                 <h5><?= $order->getStatus() ?></h5>
                                             </div>
                                             <div class="ordertimediv">
-                                                <h6>Case category</h6>
-                                                <h5><?= $order->getCategoryId() ?></h5>
+                                                <h6>Contact Name</h6>
+                                                <h5><?= $order->getName() ?></h5>
                                             </div>
                                             <div class="ordertimediv">
-                                                <h6>Reporter</h6>
-                                                <h5><?= $order->getReportedbyUser() ?></h5>
+                                                <h6>Contact Email</h6>
+                                                <h5><?= $order->getEmail() ?></h5>
                                             </div>
-
+                                            <div class="ordertimediv">
+                                                <h6>Contact Phone</h6>
+                                                <h5><?= $order->getPhone() ?></h5>
+                                            </div>
                                         </div>
 
 
 
 
                                         <div class="cartItemdetail">
-                                            <div class="menutitle">Boy looking for mother and Father
-                                            </div>
-                                            <div class="menu_desc"><?= $order->getDescription() ?>
+                                            <p style="color: #0052e9; font-weight: bold;">Purpose</p>
+                                            <div class="menu_desc"><?= $order->getPurpose() ?>
                                             </div>
                                         </div>
 
@@ -207,12 +211,12 @@ require("../queries/classes/Cases.php");
                                             <div class="cancebutton_parent">
                                                 <input class="order_id_input" type="hidden" name="orderID" value="<?= $order->getId() ?>">
                                                 <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusID() ?>">
-                                                <button class="cancelbutton">Delete Case</button>
+                                                <button class="cancelbutton">Delete</button>
                                             </div>
                                             <div class="approvebutton_parent">
                                                 <input class="order_id_input" type="hidden" name="orderID" value="<?= $order->getId() ?>">
                                                 <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusID() ?>">
-                                                <button class="approvebutton">Approve Case</button>
+                                                <button class="approvebutton">Confirm</button>
                                             </div>
 
                                         </div>
@@ -240,11 +244,11 @@ require("../queries/classes/Cases.php");
 
                                     <div class="approveorderform">
                                         <h1>Approve</h1>
-                                        <p>All approved Cases are accessed through the Reported Case Page </p>
+                                        <p>All approved Appointments are accessed through the Reported Case Page </p>
                                     </div>
 
                                     <div class="deleteorder" style="display: none;">
-                                        <h1>Delete Case</h1>
+                                        <h1>Delete</h1>
                                         <p>This action can not be reversed when done! </p>
                                     </div>
 
@@ -272,7 +276,7 @@ require("../queries/classes/Cases.php");
 
 
                     <?php else : ?>
-                        Order Detail Failed
+                       No Appointments
                     <?php endif ?>
 
                 </div>

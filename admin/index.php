@@ -168,8 +168,8 @@ require "queries/classes/Cases.php";
                 <img src="images/bx_category.svg" alt="" />
               </div>
               <div class="stats">
-                <p class="label">Managed Cases</p>
-                <p class="number"><?= $total_handledCases ?></p>
+                <p class="label">Approved Cases</p>
+                <p class="number"><?= $total_approvedCases ?></p>
               </div>
 
             </div>

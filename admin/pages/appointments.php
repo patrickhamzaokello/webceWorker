@@ -5,10 +5,10 @@ $con = $db->getConnString();
 
 require('../session.php');
 require('../queries/statsquery.php');
-require('../queries/appointment_query.php');
 require('../queries/appointment_new_query.php');
 require('../queries/appointment_prep_query.php');
 require('../queries/appointment_delivered_query.php');
+require("../queries/classes/User.php");
 require("../queries/classes/Appointment.php");
 
 ?>
@@ -172,13 +172,13 @@ require("../queries/classes/Appointment.php");
           <div class="appointmentdiv">
 
 
-            <?php if ($appointmentNew) : ?>
+            <?php if ($appoint_new) : ?>
 
               <div class="childrencontainer">
 
 
                 <?php
-                foreach ($appointmentNew as $row) :
+                foreach ($appoint_new as $row) :
                 ?>
 
                   <?php
@@ -206,11 +206,12 @@ require("../queries/classes/Appointment.php");
 
 
 
-                    <input type="hidden" name="artistid" value="<?= $order->getId() ?>">
+                      <input type="hidden" name="artistid" value="<?= $order->getId() ?>">
 
-                    <!-- <div class="product-card__actions">
-                      <a href="#" class="btn btn-primary my-2  sponsorbutton">View Details</a>
-                    </div> -->
+                      <div class="product-card__actions">
+                          <a href="appointmentdetail.php?id=<?= $order->getId() ?>" class="btn btn-primary my-2  sponsorbutton">View Details</a>
+                      </div>
+
                   </div>
 
                 <?php endforeach ?>
