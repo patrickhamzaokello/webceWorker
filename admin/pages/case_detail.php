@@ -209,11 +209,20 @@ require("../queries/classes/Cases.php");
                                                 <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusID() ?>">
                                                 <button class="cancelbutton">Delete Case</button>
                                             </div>
+
+                                            <?php if ( $order->getStatusID() < 3) : ?>
                                             <div class="approvebutton_parent">
                                                 <input class="order_id_input" type="hidden" name="orderID" value="<?= $order->getId() ?>">
                                                 <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusID() ?>">
                                                 <button class="approvebutton">Approve Case</button>
                                             </div>
+                                            <?php else :  ?>
+                                                <div class="approvebutton_parent" style="display: none" aria-disabled="true">
+                                                    <input class="order_id_input" type="hidden" name="orderID" value="<?= $order->getId() ?>">
+                                                    <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusID() ?>">
+                                                    <button class="approvebutton">Approve Case</button>
+                                                </div>
+                                            <?php endif ?>
 
                                         </div>
                                     </div>
@@ -289,7 +298,7 @@ require("../queries/classes/Cases.php");
             sidebar = body.querySelector('nav'),
             toggle = body.querySelector(".toggle"),
             searchBtn = body.querySelector(".search-box"),
-            modeSwitch = body.querySelector(".toggle-switch"),
+            // modeSwitch = body.querySelector(".toggle-switch"),
             modeText = body.querySelector(".mode-text");
 
 
@@ -301,19 +310,19 @@ require("../queries/classes/Cases.php");
             sidebar.classList.remove("close");
         })
 
-        modeSwitch.addEventListener("click", () => {
-            body.classList.toggle("dark");
-
-            if (body.classList.contains("dark")) {
-                modeText.innerText = "Light mode";
-            } else {
-                modeText.innerText = "Dark mode";
-
-            }
-        });
+        // modeSwitch.addEventListener("click", () => {
+        //     body.classList.toggle("dark");
+        //
+        //     if (body.classList.contains("dark")) {
+        //         modeText.innerText = "Light mode";
+        //     } else {
+        //         modeText.innerText = "Dark mode";
+        //
+        //     }
+        // });
     </script>
 
-    <script src="../js/process_order_detail.js"></script>
+    <script src="../js/process_case_detail.js"></script>
 
 </body>
 

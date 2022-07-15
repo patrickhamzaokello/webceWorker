@@ -82,7 +82,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "processors/process_approve_order.php",
+      url: "processors/process_manage_cases.php",
       data: formData,
       dataType: "json",
       encode: true,

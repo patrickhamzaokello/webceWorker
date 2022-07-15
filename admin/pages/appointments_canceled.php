@@ -115,17 +115,6 @@ require("../queries/classes/Appointment.php");
           </a>
         </li>
 
-        <li class="mode">
-          <div class="sun-moon">
-            <i class='bx bx-moon icon moon'></i>
-            <i class='bx bx-sun icon sun'></i>
-          </div>
-          <span class="mode-text text">Dark mode</span>
-
-          <div class="toggle-switch">
-            <span class="switch"></span>
-          </div>
-        </li>
 
       </div>
     </div>
@@ -159,7 +148,7 @@ require("../queries/classes/Appointment.php");
 
 
             <a href="appointments_canceled.php">
-              <div class="filterorder filter_active">Canceled <span class="noti circle"><?= $total_cancel_appointment_stat ?></span></div>
+              <div class="filterorder filter_active">Completed <span class="noti circle"><?= $total_cancel_appointment_stat ?></span></div>
             </a>
 
 
@@ -238,7 +227,7 @@ require("../queries/classes/Appointment.php");
       sidebar = body.querySelector('nav'),
       toggle = body.querySelector(".toggle"),
       searchBtn = body.querySelector(".search-box"),
-      modeSwitch = body.querySelector(".toggle-switch"),
+      // modeSwitch = body.querySelector(".toggle-switch"),
       modeText = body.querySelector(".mode-text");
 
 
@@ -250,19 +239,19 @@ require("../queries/classes/Appointment.php");
       sidebar.classList.remove("close");
     })
 
-    modeSwitch.addEventListener("click", () => {
-      body.classList.toggle("dark");
-
-      if (body.classList.contains("dark")) {
-        modeText.innerText = "Light mode";
-      } else {
-        modeText.innerText = "Dark mode";
-
-      }
-    });
+    // modeSwitch.addEventListener("click", () => {
+    //   body.classList.toggle("dark");
+    //
+    //   if (body.classList.contains("dark")) {
+    //     modeText.innerText = "Light mode";
+    //   } else {
+    //     modeText.innerText = "Dark mode";
+    //
+    //   }
+    // });
   </script>
 
-  <script src="../js/process_order_detail.js"></script>
+  <script src="../js/process_appointment_detail.js"></script>
 
 </body>
 
