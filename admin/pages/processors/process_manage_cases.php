@@ -13,17 +13,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $orderstatus = mysqli_real_escape_string($con, $_POST['orderstatus']);
     $order_action = mysqli_real_escape_string($con, $_POST['order_action']);
     $feedbackmessage = mysqli_real_escape_string($con, $_POST['feedbackmessage']);
+    $userID = mysqli_real_escape_string($con, $_POST['userID']);
 
     if (empty($_POST['childname'])) {
-        $errors['childname'] = 'Referral ID is Required';
+        $errors['childname'] = 'Case ID is Required';
     }
     if (empty($_POST['orderstatus'])) {
-        $errors['order Status'] = 'Referral status is Required';
+        $errors['order Status'] = 'Case status is Required';
     }
     if (empty($_POST['order_action'])) {
-        $errors['order Status'] = 'Referral action is Required';
+        $errors['order Status'] = 'Case action is Required';
     }   if (empty($_POST['feedbackmessage'])) {
         $errors['feedbackmessage'] = 'Feed back Message is Required';
+    }
+    if (empty($_POST['userID'])) {
+        $errors['userID'] = 'User Id is Required';
     }
 
     if (!empty($errors)) {
@@ -31,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $data['errors'] = $errors;
     } else {
 
-        $sendfeedback_sql = "INSERT INTO `messages`(`userid`, `message`) VALUES ('11', '$feedbackmessage')";
+        $sendfeedback_sql = "INSERT INTO `messages`(`userid`, `message`) VALUES ($userID, '$feedbackmessage')";
 
         if(intval($order_action)  == 1){
 
@@ -45,10 +49,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 mysqli_query($con,$sendfeedback_sql);
 
                 $data['success'] = true;
-                $data['message'] = $affected_rows .' Referral Deleted!';
+                $data['message'] = $affected_rows .' Case Deleted!';
             } else if($affected_rows <= 0) {
                 $data['success'] = false;
-                $data['message'] = 'Referral with ID '.$childname.' Not Deleted';
+                $data['message'] = 'Case with ID '.$childname.' Not Deleted';
             }
 
         } elseif (intval($order_action)  == 2){
@@ -72,10 +76,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($affected_rows >= 1) {
                 mysqli_query($con,$sendfeedback_sql);
                 $data['success'] = true;
-                $data['message'] = $affected_rows .' Referral Approved!';
+                $data['message'] = $affected_rows .' Case Approved!';
             } else if($affected_rows <= 0) {
                 $data['success'] = false;
-                $data['message'] = 'Referral with ID '.$childname.' Not Updated';
+                $data['message'] = 'Case with ID '.$childname.' Not Updated';
             }
         }
 

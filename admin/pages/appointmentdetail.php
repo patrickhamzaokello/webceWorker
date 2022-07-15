@@ -262,7 +262,7 @@ require('../queries/appointment_canceled_query.php');
                                     </div>
 
                                     <input id="feedbackinput" type="text" placeholder="Feedback" class="form-control" required name="feedback">
-
+                                    <input style="display: none" disabled id="userID" value="<?= $order->getReportedbyId() ?>" type="text" placeholder="Feedback" class="form-control" required name="feedback">
 
                                     <div class="form-group">
                                         <input type="submit" value="Approve" style="width: 100% !important;" class="sponsorchildnowbtn">
