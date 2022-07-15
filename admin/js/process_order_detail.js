@@ -1,6 +1,7 @@
 const approveOrderBtn = document.querySelectorAll(".approvebutton_parent");
 const cancelORderBTn = document.querySelectorAll(".cancebutton_parent");
 const childinputname = document.querySelector("#childnameinput");
+const feedbackinput = document.querySelector("#feedbackinput");
 const order_status_id = document.querySelector("#order_status_id");
 const sponsorshipform = document.querySelector(".sponserdiv");
 const loaderdiv = document.querySelector(".loaderdiv");
@@ -68,6 +69,7 @@ $(document).ready(function () {
     var formData = {
       childname: $("#childnameinput").val(),
       orderstatus: $("#order_status_id").val(),
+      feedbackmessage: $("#feedbackinput").val(),
       order_action: order_action,
     };
 

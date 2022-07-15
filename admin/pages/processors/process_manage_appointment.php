@@ -12,6 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $childname = mysqli_real_escape_string($con, $_POST['childname']);
     $orderstatus = mysqli_real_escape_string($con, $_POST['orderstatus']);
     $order_action = mysqli_real_escape_string($con, $_POST['order_action']);
+    $feedbackmessage = mysqli_real_escape_string($con, $_POST['feedbackmessage']);
+
 
     if (empty($_POST['childname'])) {
         $errors['childname'] = 'Referral ID is Required';
@@ -21,12 +23,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if (empty($_POST['order_action'])) {
         $errors['order Status'] = 'Referral action is Required';
+    } if (empty($_POST['feedbackmessage'])) {
+        $errors['feedbackmessage'] = 'Feed back Message is Required';
     }
 
     if (!empty($errors)) {
         $data['success'] = false;
         $data['errors'] = $errors;
     } else {
+        $sendfeedback_sql = "INSERT INTO `messages`(`userid`, `message`) VALUES ('11', '$feedbackmessage')";
 
         if(intval($order_action)  == 1){
 
@@ -37,6 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $affected_rows = mysqli_affected_rows($con);
     
             if ($affected_rows >= 1) {
+                mysqli_query($con,$sendfeedback_sql);
+
                 $data['success'] = true;
                 $data['message'] = $affected_rows .' Appointment Deleted!';
             } else if($affected_rows <= 0) {
@@ -61,6 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $affected_rows = mysqli_affected_rows($con);
     
             if ($affected_rows >= 1) {
+                mysqli_query($con,$sendfeedback_sql);
+
                 $data['success'] = true;
                 $data['message'] = $affected_rows .' Referral Approved!';
             } else if($affected_rows <= 0) {

@@ -68,6 +68,7 @@ $(document).ready(function () {
     var formData = {
       childname: $("#childnameinput").val(),
       orderstatus: $("#order_status_id").val(),
+      feedbackmessage: $("#feedbackinput").val(),
       order_action: order_action,
     };
 
