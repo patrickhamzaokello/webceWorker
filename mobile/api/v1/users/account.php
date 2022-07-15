@@ -18,23 +18,21 @@ if (isset($_GET['apicall'])) {
                 case 'signup':
 
                         //checking the parameters required are available or not 
-                        if (isTheseParametersAvailable(array('full_name', 'username', 'email', 'user_phone', 'password', 'location_address'))) {
+                        if (isTheseParametersAvailable(array('full_name', 'email', 'phone_number', 'password', 'location_address'))) {
 
                                 //getting the values 
                                 $full_name = $_POST['full_name'];
-                                $username = $_POST['username'];
                                 $email = $_POST['email'];
-                                $user_phone = $_POST['user_phone'];
+                                $phone_number = $_POST['phone_number'];
                                 $password = md5($_POST['password']);
                                 $location_address = $_POST['location_address'];
                                 $profileimage = "https://media.istockphoto.com/vectors/creative-vector-seamless-pattern-vector-id975589890?k=20&m=975589890&s=612x612&w=0&h=2acWhh0ASGWI7vRqofWthsp2UqagVUCQqdmUQLyAs3Y=";
 
 
-
                                 //checking if the user is already exist with this username or email
                                 //as the email and username should be unique for every user 
-                                $stmt = $conn->prepare("SELECT customer_id FROM users WHERE customer_username = ? OR customer_email = ?");
-                                $stmt->bind_param("ss", $username, $email);
+                                $stmt = $conn->prepare("SELECT user_id FROM users WHERE phone_number = ? OR email = ?");
+                                $stmt->bind_param("ss", $phone_number, $email);
                                 $stmt->execute();
                                 $stmt->store_result();
 
@@ -47,35 +45,29 @@ if (isset($_GET['apicall'])) {
                                 } else {
 
                                         //if user is new creating an insert query 
-                                        $stmt = $conn->prepare("INSERT INTO users (customer_full_name, customer_username, customer_email, customer_phone_number, customer_address, profile_image, customer_password) VALUES (?, ?, ?, ?, ?, ?, ?)");
-                                        $stmt->bind_param("sssssss", $full_name, $username, $email, $user_phone, $location_address, $profileimage, $password);
+                                        $stmt = $conn->prepare("INSERT INTO users (`full_name`, `email`, `phone_number`, `address`, `profile_image`,`password`) VALUES (?, ?, ?, ?, ?, ?)");
+                                        $stmt->bind_param("ssssss", $full_name, $email, $phone_number, $location_address, $profileimage, $password);
 
                                         //if the user is successfully added to the database 
                                         if ($stmt->execute()) {
 
                                                 //fetching the user back 
-                                                $stmt = $conn->prepare("SELECT customer_id, customer_full_name, customer_username, customer_email, customer_phone_number, customer_address, profile_image FROM users WHERE customer_username = ? OR customer_email = ?");
-                                                $stmt->bind_param("ss", $username, $email);
+                                                $stmt = $conn->prepare("SELECT `user_id`, `full_name`, `email`, `phone_number`, `address`, `profile_image` FROM users WHERE phone_number = ? OR email = ?");
+                                                $stmt->bind_param("ss", $phone_number, $email);
                                                 $stmt->execute();
-                                                $stmt->bind_result($customer_id, $customer_full_name, $customer_username, $customer_email, $customer_phone_number, $customer_address, $profile_image);
+                                            $stmt->bind_result($user_id, $full_name, $email, $phone_number, $address, $profile_image);
+                                            $stmt->fetch();
 
-                                                $stmt->fetch();
+                                            $user = array(
+                                                'id' => $user_id,
+                                                'fullname' => $full_name,
+                                                'email' => $email,
+                                                'phone' => $phone_number,
+                                                'address' => $address,
+                                                'profileimage' => $profile_image
+                                            );
 
-
-                                                $user = array(
-                                                        'id' => $customer_id,
-                                                        'fullname' => $customer_full_name,
-                                                        'username' => $customer_username,
-                                                        'email' => $customer_email,
-                                                        'phone' => $customer_phone_number,
-                                                        'address' => $customer_address,
-                                                        'profileimage' => $profile_image
-                                                );
-
-
-
-
-                                                $stmt->close();
+                                            $stmt->close();
 
                                                 //adding the user data in response 
                                                 $response['error'] = false;
@@ -94,17 +86,17 @@ if (isset($_GET['apicall'])) {
 
                         //for login we need the username and password 
                         if (isTheseParametersAvailable(array('username', 'password'))) {
-                                //getting values 
+                                //getting values
                                 $username = $_POST['username'];
                                 $password = md5($_POST['password']);
 
                                 $check_email = Is_email($username);
                                 if ($check_email) {
                                         // email & password combination 
-                                        $stmt = $conn->prepare("SELECT customer_id, customer_full_name, customer_username, customer_email, customer_phone_number, customer_address, profile_image FROM users WHERE customer_email = ? AND customer_password = ?");
+                                        $stmt = $conn->prepare("SELECT `user_id`, `full_name`, `email`, `phone_number`, `address`, `profile_image` FROM users WHERE email = ? AND password = ?");
                                 } else {
                                         // username & password combination
-                                        $stmt = $conn->prepare("SELECT customer_id, customer_full_name, customer_username, customer_email, customer_phone_number, customer_address, profile_image FROM users WHERE customer_username = ? AND customer_password = ?");
+                                        $stmt = $conn->prepare("SELECT `user_id`, `full_name`, `email`, `phone_number`, `address`, `profile_image` FROM users WHERE phone_number = ? AND password = ?");
                                 }
 
                                 //creating the query 
@@ -117,16 +109,15 @@ if (isset($_GET['apicall'])) {
                                 //if the user exist with given credentials 
                                 if ($stmt->num_rows > 0) {
 
-                                        $stmt->bind_result($customer_id, $customer_full_name, $customer_username, $customer_email, $customer_phone_number, $customer_address, $profile_image);
+                                        $stmt->bind_result($user_id, $full_name, $email, $phone_number, $address, $profile_image);
                                         $stmt->fetch();
 
                                         $user = array(
-                                                'id' => $customer_id,
-                                                'fullname' => $customer_full_name,
-                                                'username' => $customer_username,
-                                                'email' => $customer_email,
-                                                'phone' => $customer_phone_number,
-                                                'address' => $customer_address,
+                                                'id' => $user_id,
+                                                'fullname' => $full_name,
+                                                'email' => $email,
+                                                'phone' => $phone_number,
+                                                'address' => $address,
                                                 'profileimage' => $profile_image
                                         );
 
@@ -138,8 +129,12 @@ if (isset($_GET['apicall'])) {
                                         $response['error'] = true;
                                         $response['message'] = 'Invalid username or password';
                                 }
+                        }else {
+                            $response['error'] = true;
+                            $response['message'] = 'required parameters are not available';
                         }
-                        break;
+
+                    break;
 
                 default:
                         $response['error'] = true;
