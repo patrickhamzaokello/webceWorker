@@ -5,7 +5,7 @@ $con = $db->getConnString();
 
 require('../session.php');
 require('../queries/statsquery.php');
-require('../queries/appointment_new_query.php');
+require('../queries/appointment_canceled_query.php');
 require("../queries/classes/User.php");
 require("../queries/classes/Appointment.php");
 
@@ -32,7 +32,7 @@ require("../queries/classes/Appointment.php");
   <!----===== Boxicons CSS ===== -->
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
-  <title>Appointments</title>
+  <title>Appointments Canceled</title>
 
 </head>
 
@@ -149,17 +149,17 @@ require("../queries/classes/Appointment.php");
 
 
             <a href="appointments">
-              <div class="filterorder filter_active">New <span class="noti circle"><?= $total_new_appointment_stat ?></span></div>
+              <div class="filterorder ">New <span class="noti circlenotactive "><?= $total_new_appointment_stat ?></span></div>
             </a>
 
 
             <a href="appointments_approved.php">
-              <div class="filterorder">Approved <span class="noti circlenotactive"><?= $total_approved_appointment_stat ?></span></div>
+              <div class="filterorder ">Approved <span class="noti circlenotactive"><?= $total_approved_appointment_stat ?></span></div>
             </a>
 
 
             <a href="appointments_canceled.php">
-              <div class="filterorder">Canceled <span class="noti circlenotactive"><?= $total_cancel_appointment_stat ?></span></div>
+              <div class="filterorder filter_active">Canceled <span class="noti circle"><?= $total_cancel_appointment_stat ?></span></div>
             </a>
 
 

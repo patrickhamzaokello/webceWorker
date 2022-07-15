@@ -248,6 +248,8 @@ require("../queries/classes/Cases.php");
                                         <p>This action can not be reversed when done! </p>
                                     </div>
 
+                                    <input id="feedbackinput" type="text" placeholder="Feedback" class="form-control" required name="feedback">
+
                                     <div class="form-group">
                                         <input type="submit" value="Approve" style="width: 100% !important;" class="sponsorchildnowbtn">
                                     </div>

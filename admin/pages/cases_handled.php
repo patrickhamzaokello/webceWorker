@@ -5,7 +5,7 @@ $con = $db->getConnString();
 
 require('../session.php');
 require('../queries/statsquery.php');
-require('../queries/case_new_query.php');
+require('../queries/case_canceled_query.php');
 require "../queries/classes/User.php";
 require("../queries/classes/Cases.php");
 
@@ -32,7 +32,7 @@ require("../queries/classes/Cases.php");
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>Cases</title>
+    <title>Cases Handled</title>
 
 </head>
 
@@ -148,18 +148,18 @@ require("../queries/classes/Cases.php");
                 <div class="orderfilter">
 
 
-                    <a href="#">
-                        <div class="filterorder filter_active">New <span class="noti circle"><?= $total_newCases ?></span></div>
+                    <a href="cases.php">
+                        <div class="filterorder ">New <span class="noti circlenotactive"><?= $total_newCases ?></span></div>
                     </a>
 
 
                     <a href="cases_approved.php">
-                        <div class="filterorder">Approved <span class="noti circlenotactive"><?= $total_approvedCases ?></span></div>
+                        <div class="filterorder ">Approved <span class="noti circlenotactive"><?= $total_approvedCases ?></span></div>
                     </a>
 
 
                     <a href="cases_handled.php">
-                        <div class="filterorder">Handled <span class="noti circlenotactive"><?= $total_handledCases ?></span></div>
+                        <div class="filterorder filter_active">Handled <span class="noti circle"><?= $total_handledCases ?></span></div>
                     </a>
 
 

@@ -10,8 +10,8 @@ require('../queries/statsquery.php');
 require("../queries/classes/User.php");
 require("../queries/classes/Appointment.php");
 require('../queries/appointment_new_query.php');
-require('../queries/appointment_prep_query.php');
-require('../queries/appointment_delivered_query.php');
+require('../queries/appointment_approved_query.php');
+require('../queries/appointment_canceled_query.php');
 
 ?>
 
@@ -252,6 +252,9 @@ require('../queries/appointment_delivered_query.php');
                                         <p>This action can not be reversed when done! </p>
                                     </div>
 
+                                    <input id="feedbackinput" type="text" placeholder="Feedback" class="form-control" required name="feedback">
+
+
                                     <div class="form-group">
                                         <input type="submit" value="Approve" style="width: 100% !important;" class="sponsorchildnowbtn">
                                     </div>
@@ -315,7 +318,7 @@ require('../queries/appointment_delivered_query.php');
         });
     </script>
 
-    <script src="../js/process_order_detail.js"></script>
+    <script src="../js/process_appointment_detail.js"></script>
 
 </body>
 
