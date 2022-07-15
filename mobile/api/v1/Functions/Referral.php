@@ -5,13 +5,14 @@ class Referral
 	private $cases = "cases";
 
 	public $id;
-	public $name;
+	public $title;
 	public $picture;
 	public $description;
 	public $category_id;
 	public $reportedby_id;
 	public $datecreated;
-	public $dateupdated;
+	public $address;
+
 
 	public $status;
 	// order private
@@ -30,17 +31,18 @@ class Referral
 	function create()
 	{
 
-		$stmt = $this->conn->prepare("INSERT INTO " . $this->cases . "(`name`, `picture`, `description`, `category_id`, `reportedby_id`, `status`) VALUES(?,?,?,?,?,?)");
+		$stmt = $this->conn->prepare("INSERT INTO " . $this->cases . "(`title`, `picture`, `description`, `category_id`, `location`, `reportedby_id`, `status`) VALUES(?,?,?,?,?,?,?)");
 
-		$this->name = htmlspecialchars(strip_tags($this->name));
+		$this->title = htmlspecialchars(strip_tags($this->title));
 		$this->picture = htmlspecialchars(strip_tags($this->picture));
 		$this->description = htmlspecialchars(strip_tags($this->description));
 		$this->category_id = htmlspecialchars(strip_tags($this->category_id));
 		$this->reportedby_id = htmlspecialchars(strip_tags($this->reportedby_id));
         $this->status = htmlspecialchars(strip_tags($this->status));
+        $this->address = htmlspecialchars(strip_tags($this->address));
 
 
-        $stmt->bind_param("ssssii", $this->name, $this->picture, $this->description, $this->category_id, $this->reportedby_id, $this->status);
+        $stmt->bind_param("sssssii", $this->title, $this->picture, $this->description, $this->category_id, $this->address, $this->reportedby_id, $this->status);
 
 		if ($stmt->execute()) {
 			$this->exe_status = "success";

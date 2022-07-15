@@ -127,7 +127,7 @@ class Appointment
     {
 
         $phpdate = strtotime($this->appointment_date);
-        $mysqldate = date('d M Y h:i A', $phpdate);
+        $mysqldate = date('d M Y ', $phpdate);
         // $mysqldate = date( 'd/M/Y H:i:s', $phpdate );
 
         return $mysqldate;

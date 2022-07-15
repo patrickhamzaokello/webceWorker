@@ -15,12 +15,9 @@ $items = new Appointments($db);
 $data = json_decode(file_get_contents("php://input"));
 
 
-if(!empty($data->userid) && !empty($data->phone) && !empty($data->purpose)&& !empty($data->appointment_date)){
+if(!empty($data->userid)  && !empty($data->purpose)&& !empty($data->appointment_date)){
 
     $items->userid = $data->userid;
-    $items->name = $data->name;
-    $items->email = $data->email;
-    $items->phone = $data->phone;
     $items->purpose = $data->purpose;
     $items->appointment_date = $data->appointment_date;
     $items->datecreated = date('Y-m-d H:i:s');

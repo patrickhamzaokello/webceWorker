@@ -15,13 +15,15 @@ $items = new Referral($db);
 $data = json_decode(file_get_contents("php://input"));
 
 
-if(!empty($data->name) && !empty($data->category_id) && !empty($data->reportedby_id)&& !empty($data->description)){
+if(!empty($data->title) && !empty($data->category_id) && !empty($data->reportedby_id)&& !empty($data->description)){
   
-    $items->name = $data->name;
+    $items->title = $data->title;
     $items->picture = $data->picture;
     $items->description = $data->description;
     $items->category_id = $data->category_id;
     $items->reportedby_id = $data->reportedby_id;
+    $items->address = $data->address;
+    $items->status = 1;
     $items->datecreated = date('Y-m-d H:i:s');
 
 

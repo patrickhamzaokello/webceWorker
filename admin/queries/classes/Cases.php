@@ -6,7 +6,6 @@ class Cases
 
     private $con;
     private $id;
-    private $name;
     private $picture;
     private $title;
     private $description;
@@ -27,14 +26,13 @@ class Cases
         $this->con = $con;
         $this->id = $id;
 
-        $query = mysqli_query($this->con, "SELECT `id`, `name`, `picture`,`title`, `description`, `location`, `longitude`, `latitude`, `category_id`, `reportedby_id`, `datecreated`, `dateupdated`, `status` FROM ".$this->TABLE_NAME." WHERE id = $this->id ");
+        $query = mysqli_query($this->con, "SELECT `id`, `picture`,`title`, `description`, `location`, `longitude`, `latitude`, `category_id`, `reportedby_id`, `datecreated`, `dateupdated`, `status` FROM ".$this->TABLE_NAME." WHERE id = $this->id ");
         $case_fetched = mysqli_fetch_array($query);
 
 
         if (mysqli_num_rows($query) < 1) {
 
             $this->id = null;
-            $this->name = null;
             $this->picture = null;
             $this->title = null;
             $this->description = null;
@@ -49,7 +47,6 @@ class Cases
         } else {
 
             $this->id = $case_fetched['id'];
-            $this->name = $case_fetched['name'];
             $this->picture = $case_fetched['picture'];
             $this->title = $case_fetched['title'];
             $this->description = $case_fetched['description'];
@@ -72,10 +69,6 @@ class Cases
     }
 
 
-    public function getName()
-    {
-        return $this->name;
-    }
 
 
     public function getPicture()
