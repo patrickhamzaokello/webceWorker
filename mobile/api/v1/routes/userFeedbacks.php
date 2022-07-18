@@ -3,21 +3,16 @@ header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 
 include_once '../../../../admin/config.php';
-include_once '../Functions/Referral.php';
+include_once '../Functions/MessageFunction.php';
 
 $database = new Database();
 $db = $database->getConnString();
 
  
-$order = new Referral($db);
-
-//okello
-
-// $order->order_id = (isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0';
+$order = new MessageFunction($db);
 
 
-
-$result = $order->readUserOrders();
+$result = $order->readFeedbacks();
 
 
 
