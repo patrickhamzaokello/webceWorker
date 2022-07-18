@@ -182,7 +182,7 @@ require("../queries/classes/Cases.php");
 
 
                                         <div class="cartItemdetail">
-                                            <div class="menutitle">Boy looking for mother and Father
+                                            <div class="menutitle"><?= $order->getTitle() ?>
                                             </div>
                                             <div class="menu_desc"><?= $order->getDescription() ?>
                                             </div>
