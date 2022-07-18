@@ -177,9 +177,6 @@ require("../queries/classes/Appointment.php");
                     <h5><?= $order->getName() ?></h5>
                     <p><?= $order->getEmail() ?></p>
                     <p><?= $order->getPhone() ?></p>
-                    <p style="color: #666; margin-top: 1em;">Appointment ID</p>
-
-                    <h5>FAM_0x<?= $order->getId() ?></h5>
                   
                     <p style="color: #666; margin-top: 1em;">Purpose</p>
                     <p><?= $order->getPurpose() ?></p>
