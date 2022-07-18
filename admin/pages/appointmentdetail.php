@@ -14,8 +14,6 @@ require('../queries/appointment_approved_query.php');
 require('../queries/appointment_canceled_query.php');
 
 ?>
-
-
 <!DOCTYPE html>
 <!-- Coding by CodingLab | www.codinglabweb.com -->
 <html lang="en">
@@ -35,7 +33,7 @@ require('../queries/appointment_canceled_query.php');
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>Case Detail</title>
+    <title>Appointment Detail</title>
 
 </head>
 
@@ -86,26 +84,7 @@ require('../queries/appointment_canceled_query.php');
             </a>
           </li>
 
-          <!-- <li class="nav-link">
-            <a href="#">
-              <i class='bx bx-pie-chart-alt icon'></i>
-              <span class="text nav-text">Analytics</span>
-            </a>
-          </li>
 
-          <li class="nav-link">
-            <a href="#">
-              <i class='bx bx-heart icon'></i>
-              <span class="text nav-text">Likes</span>
-            </a>
-          </li>
-
-          <li class="nav-link">
-            <a href="#">
-              <i class='bx bx-wallet icon'></i>
-              <span class="text nav-text">Wallets</span>
-            </a>
-          </li> -->
 
         </ul>
       </div>
@@ -118,17 +97,6 @@ require('../queries/appointment_canceled_query.php');
           </a>
         </li>
 
-        <li class="mode">
-          <div class="sun-moon">
-            <i class='bx bx-moon icon moon'></i>
-            <i class='bx bx-sun icon sun'></i>
-          </div>
-          <span class="mode-text text">Dark mode</span>
-
-          <div class="toggle-switch">
-            <span class="switch"></span>
-          </div>
-        </li>
 
       </div>
     </div>
@@ -146,8 +114,6 @@ require('../queries/appointment_canceled_query.php');
 
                     if ($order->getId() != null) :
                     ?>
-
-
 
 
 
@@ -207,26 +173,28 @@ require('../queries/appointment_canceled_query.php');
                                             </div>
                                         </div>
 
+
+
                                         <div class="cartdetailbutton">
                                             <div class="cancebutton_parent">
                                                 <input class="order_id_input" type="hidden" name="orderID" value="<?= $order->getId() ?>">
                                                 <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusID() ?>">
-                                                <button class="cancelbutton">Delete</button>
+                                                <button class="cancelbutton">Delete Case</button>
                                             </div>
+
                                             <?php if ( $order->getStatusID() < 3) : ?>
-                                            <div class="approvebutton_parent">
-                                                <input class="order_id_input" type="hidden" name="orderID" value="<?= $order->getId() ?>">
-                                                <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusID() ?>">
-                                                <button class="approvebutton">Confirm</button>
-                                            </div>
+                                                <div class="approvebutton_parent">
+                                                    <input class="order_id_input" type="hidden" name="orderID" value="<?= $order->getId() ?>">
+                                                    <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusID() ?>">
+                                                    <button class="approvebutton">Approve Case</button>
+                                                </div>
                                             <?php else :  ?>
                                                 <div class="approvebutton_parent" style="display: none" aria-disabled="true">
                                                     <input class="order_id_input" type="hidden" name="orderID" value="<?= $order->getId() ?>">
                                                     <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusID() ?>">
-                                                    <button class="approvebutton">Confirm</button>
+                                                    <button class="approvebutton">Approve Case</button>
                                                 </div>
                                             <?php endif ?>
-
 
                                         </div>
                                     </div>
@@ -297,6 +265,7 @@ require('../queries/appointment_canceled_query.php');
         </div>
 
     </section>
+    <script src="../js/process_appointment_detail.js"></script>
 
     <script>
         const body = document.querySelector('body'),
@@ -314,20 +283,9 @@ require('../queries/appointment_canceled_query.php');
         searchBtn.addEventListener("click", () => {
             sidebar.classList.remove("close");
         })
-        //
-        // modeSwitch.addEventListener("click", () => {
-        //     body.classList.toggle("dark");
-        //
-        //     if (body.classList.contains("dark")) {
-        //         modeText.innerText = "Light mode";
-        //     } else {
-        //         modeText.innerText = "Dark mode";
-        //
-        //     }
-        // });
+
     </script>
 
-    <script src="../js/process_appointment_detail.js"></script>
 
 </body>
 

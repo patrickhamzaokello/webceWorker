@@ -19,7 +19,7 @@ var order_action;
 approveOrderBtn.forEach((productCard) => {
   const childNamegot = productCard.querySelector(".order_id_input").value;
   const order_status_id_got =
-    productCard.querySelector(".order_status_id").value;
+      productCard.querySelector(".order_status_id").value;
 
   // Make whole card clickable, but only if event target is NOT a specific card action inside <div Functions="product-card__actions">.
   productCard.addEventListener("click", (e) => {
@@ -45,6 +45,9 @@ cancelORderBTn.forEach((cancelbtn) => {
 
   // Make whole card clickable, but only if event target is NOT a specific card action inside <div Functions="product-card__actions">.
   cancelbtn.addEventListener("click", (e) => {
+
+    console.log("click me");
+
     if (e.target.closest(".product-card__actions") === null) {
       if (displaySetting == "block") {
         sponsorshipform.style.display = "none";
@@ -82,14 +85,14 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "processors/process_manage_appointment.php",
+      url: "processors/process_manage_cases.php",
       data: formData,
       dataType: "json",
       encode: true,
     }).done(function (data) {
       if (!data.success) {
         $(".sponsormessagediv").html(
-          '<div Functions="alert alert-error">' + data.message + "</div>"
+            '<div Functions="alert alert-error">' + data.message + "</div>"
         );
         setTimeout(function () {
           $(".sponsormessagediv").html("");
@@ -98,7 +101,7 @@ $(document).ready(function () {
         }, 3000);
       } else {
         $(".sponsormessagediv").html(
-          '<div Functions="alert alert-success">' + data.message + "</div>"
+            '<div Functions="alert alert-success">' + data.message + "</div>"
         );
         setTimeout(function () {
           $(".sponsormessagediv").html("");
@@ -107,7 +110,7 @@ $(document).ready(function () {
         }, 3000);
 
         document.getElementById("approveform").reset();
-        window.location.href = "appointments.php";
+        window.location.href = "cases.php";
       }
     });
 
