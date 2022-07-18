@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $data['errors'] = $errors;
     } else {
 
-        $sendfeedback_sql = "INSERT INTO `messages`(`userid`, `message`,`refertype`,`referid`) VALUES ($userID, '$feedbackmessage', 'appointment','$childname')";
+        $sendfeedback_sql = "INSERT INTO `messages`(`userid`, `message`,`refertype`,`referid`) VALUES ($userID, '$feedbackmessage', 'case','$childname')";
 
         if(intval($order_action)  == 1){
 
