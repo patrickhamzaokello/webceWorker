@@ -47,7 +47,6 @@ cancelORderBTn.forEach((cancelbtn) => {
   // Make whole card clickable, but only if event target is NOT a specific card action inside <div Functions="product-card__actions">.
   cancelbtn.addEventListener("click", (e) => {
 
-    console.log("click me");
 
     if (e.target.closest(".product-card__actions") === null) {
       if (displaySetting == "block") {

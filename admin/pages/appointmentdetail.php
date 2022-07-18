@@ -178,21 +178,21 @@ require('../queries/appointment_canceled_query.php');
                                         <div class="cartdetailbutton">
                                             <div class="cancebutton_parent">
                                                 <input class="order_id_input" type="hidden" name="orderID" value="<?= $order->getId() ?>">
-                                                <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusID() ?>">
-                                                <button class="cancelbutton">Delete Case</button>
+                                                <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusId() ?>">
+                                                <button class="cancelbutton">Delete</button>
                                             </div>
 
-                                            <?php if ( $order->getStatusID() < 3) : ?>
+                                            <?php if ( $order->getStatusId() < 3) : ?>
                                                 <div class="approvebutton_parent">
                                                     <input class="order_id_input" type="hidden" name="orderID" value="<?= $order->getId() ?>">
-                                                    <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusID() ?>">
-                                                    <button class="approvebutton">Approve Case</button>
+                                                    <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusId() ?>">
+                                                    <button class="approvebutton">Approve</button>
                                                 </div>
                                             <?php else :  ?>
                                                 <div class="approvebutton_parent" style="display: none" aria-disabled="true">
                                                     <input class="order_id_input" type="hidden" name="orderID" value="<?= $order->getId() ?>">
-                                                    <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusID() ?>">
-                                                    <button class="approvebutton">Approve Case</button>
+                                                    <input class="order_status_id" type="hidden" name="order_status_id" value="<?= $order->getStatusId() ?>">
+                                                    <button class="approvebutton">Approve</button>
                                                 </div>
                                             <?php endif ?>
 
@@ -230,7 +230,7 @@ require('../queries/appointment_canceled_query.php');
                                     </div>
 
                                     <input id="feedbackinput" type="text" placeholder="Feedback" class="form-control" required name="feedback">
-                                    <input style="display: none" disabled id="userID" value="<?= $order->getReportedbyId() ?>" type="text" placeholder="Feedback" class="form-control" required name="feedback">
+                                    <input style="display: none" disabled id="userID" value="<?= $order->getUserid() ?>" type="text" placeholder="Feedback" class="form-control" required name="feedback">
 
                                     <div class="form-group">
                                         <input type="submit" value="Approve" style="width: 100% !important;" class="sponsorchildnowbtn">
@@ -265,7 +265,6 @@ require('../queries/appointment_canceled_query.php');
         </div>
 
     </section>
-    <script src="../js/process_appointment_detail.js"></script>
 
     <script>
         const body = document.querySelector('body'),
@@ -286,6 +285,7 @@ require('../queries/appointment_canceled_query.php');
 
     </script>
 
+    <script src="../js/process_appointment_detail.js"></script>
 
 </body>
 

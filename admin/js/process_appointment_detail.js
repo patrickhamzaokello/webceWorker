@@ -85,7 +85,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "processors/process_manage_cases.php",
+      url: "processors/process_manage_appointment.php",
       data: formData,
       dataType: "json",
       encode: true,
@@ -110,7 +110,7 @@ $(document).ready(function () {
         }, 3000);
 
         document.getElementById("approveform").reset();
-        window.location.href = "cases.php";
+        window.location.href = "appointments.php";
       }
     });
 
