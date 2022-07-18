@@ -10,6 +10,7 @@ class Appointment
     private $phone;
     private $purpose;
     private $appointment_date;
+    private $appointment_time;
     private $status;
     private $date_created;
     private $date_updated;
@@ -26,7 +27,7 @@ class Appointment
         $this->id = $id;
 
 
-        $query = mysqli_query($this->con, " SELECT `id`, `userid`, `purpose`, `appointment_date`, `status`, `date-created`, `date-updated` FROM ".$this->TABLE_NAME." WHERE id = $this->id ");
+        $query = mysqli_query($this->con, " SELECT `id`, `userid`, `purpose`, `appointment_date`, `appointment_time`,`status`, `date-created`, `date-updated` FROM ".$this->TABLE_NAME." WHERE id = $this->id ");
         $appointment_fetched = mysqli_fetch_array($query);
 
 
@@ -39,6 +40,7 @@ class Appointment
             $this->phone = null;
             $this->purpose = null;
             $this->appointment_date = null;
+            $this->appointment_time = null;
             $this->status = null;
             $this->date_created = null;
             $this->date_updated = null;
@@ -48,6 +50,7 @@ class Appointment
             $this->userid = $appointment_fetched['userid'];
             $this->purpose = $appointment_fetched['purpose'];
             $this->appointment_date = $appointment_fetched['appointment_date'];
+            $this->appointment_time = $appointment_fetched['appointment_time'];
             $this->status = $appointment_fetched['status'];
             $this->date_created = $appointment_fetched['date-created'];
             $this->date_updated = $appointment_fetched['date-updated'];
@@ -63,6 +66,8 @@ class Appointment
     {
         return $this->id;
     }
+
+
 
     /**
      * @return mixed|null
@@ -125,13 +130,18 @@ class Appointment
      */
     public function getAppointmentDate()
     {
-
-        $phpdate = strtotime($this->appointment_date);
-        $mysqldate = date('d M Y ', $phpdate);
-        // $mysqldate = date( 'd/M/Y H:i:s', $phpdate );
-
-        return $mysqldate;
+        $time_date = $this->appointment_time .' , '. $this->appointment_date;
+        return $time_date;
     }
+
+    /**
+     * @return mixed|null
+     */
+    public function getAppointmentTime()
+    {
+        return $this->appointment_time;
+    }
+
 
     /**
      * @return mixed|null

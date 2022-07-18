@@ -15,11 +15,12 @@ $items = new Appointments($db);
 $data = json_decode(file_get_contents("php://input"));
 
 
-if(!empty($data->userid)  && !empty($data->purpose)&& !empty($data->appointment_date)){
+if(!empty($data->userid)  && !empty($data->purpose)&& !empty($data->appointment_date) && !empty($data->time) ){
 
     $items->userid = $data->userid;
     $items->purpose = $data->purpose;
     $items->appointment_date = $data->appointment_date;
+    $items->appointment_time = $data->time;
     $items->datecreated = date('Y-m-d H:i:s');
 
 
