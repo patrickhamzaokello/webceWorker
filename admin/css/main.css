@@ -5,7 +5,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: #00c462;
 }
 
 .mb-2,
@@ -936,7 +936,7 @@ body.dark .home .text {
 }
 
 .mainpanel .orderfilter .circle {
-  background: #c40024;
+  background: #00c462;
   border-radius: 50%;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
@@ -977,7 +977,7 @@ body.dark .home .text {
 }
 
 .mainpanel .orderfilter .filterorder:hover {
-  background: #ff0935 !important;
+  background: #00c462 !important;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   -webkit-animation-duration: 1s;
@@ -986,7 +986,7 @@ body.dark .home .text {
 }
 
 .mainpanel .orderfilter .filter_active {
-  background: #ff0935 !important;
+  background: #00c462 !important;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   -webkit-animation-duration: 1s;
@@ -1028,7 +1028,7 @@ body.dark .home .text {
 }
 
 .cartdetailbutton .approvebutton {
-  background: #000;
+  background: #00c462;
   color: white;
   border: none;
   margin-left: 1em;
@@ -1087,7 +1087,7 @@ body.dark .home .text {
 }
 
 .sponsorchildnowbtn {
-  background: #000;
+  background: #00c462;
   border: none;
   padding: 10px 20px;
   width: 100%;
@@ -1163,7 +1163,7 @@ body.dark .home .text {
   padding: 5px 18px;
   background: #fff !important;
   color: black;
-  border: 1px solid #000 !important;
+  border: 1px solid #00c462 !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
   border-radius: 5px;
@@ -1180,7 +1180,7 @@ body.dark .home .text {
   padding: 5px 18px;
   background: black !important;
   color: white;
-  border: 1px solid #000 !important;
+  border: 1px solid #00c462 !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
   border-radius: 5px;
@@ -1225,7 +1225,7 @@ body.dark .home .text {
 .smalltag {
   background: #86ffa0 !important;
   padding: 0.1em 1em !important;
-  color: #000 !important;
+  color: #00c462 !important;
   font-size: 12px !important;
 }
 
