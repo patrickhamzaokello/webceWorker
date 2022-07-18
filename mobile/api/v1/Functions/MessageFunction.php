@@ -44,7 +44,7 @@ class MessageFunction
 
 
             $itemRecords["page"] = $this->pageno;
-            $itemRecords["Message"] = array();
+            $itemRecords["user_message"] = array();
             $itemRecords["total_pages"] = $total_pages;
             $itemRecords["total_results"] = $total_rows;
 
@@ -71,7 +71,7 @@ class MessageFunction
                     $temp['message'] = $this->message;
                     $temp['created_date'] = $mysqldate;
 
-                    array_push($itemRecords["Message"], $temp);
+                    array_push($itemRecords["user_message"], $temp);
                 }
             } else {
                 $temp = array();
@@ -81,7 +81,7 @@ class MessageFunction
                 $temp['message'] = null;
                 $temp['created_date'] = null;
 
-                array_push($itemRecords["Message"], $temp);
+                array_push($itemRecords["user_message"], $temp);
             }
 
         }
